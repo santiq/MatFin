@@ -12,7 +12,7 @@ machine:
 ## Customize dependencies
 dependencies:
   pre:
-    - npm install -g ionic cordova
+    - npm install -g ionic cordova yarn
     - echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-25
     - echo y | android update sdk --no-ui --all --filter build-tools-25.0.0
 
@@ -27,9 +27,7 @@ dependencies:
 
 test:
   pre:
-    - npm rebuild node-sass
-    - bower install
-    - npm install
+    - yarn install
 
 
   override:
