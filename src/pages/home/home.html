@@ -1,43 +1,53 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title> Financiacion </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div>
-    <label>Deuda: </label>
-    <input type="number" [(ngModel)]="formula.deuda" placeholder="deuda">
-  </div>
-  <div>
-    <label>Cuota: </label>
-    <input type="number" [(ngModel)]="formula.cuota" placeholder="cuota">
-  </div>
-  <div>
-    <label>Tiempo: </label>
-    <input type="number" [(ngModel)]="formula.tiempo" placeholder="tiempo">
-  </div>
-  <div>
-    <label>Iteraciones: </label>
-    <input type="number" [(ngModel)]="formula.iteraciones" placeholder="iteraciones">
-  </div>
-
-  <button type="button" name="button" class="btn btn-primary" (click)="onCalculate()"> Calcular </button>
-
-  <div class="row">
-    <div class="col-md-6">
-      <div style="display: block;">
-      <canvas baseChart
-        [datasets]="resultados"
-        [labels]="lineChartLabels"
-        [legend]="false"
-        [chartType]="'line'">
-      </canvas>
+  <div class="container">
+    <div class="row">
+      <h1> Determinacion de la tasa efectiva </h1>
+    </div>
+    <div class="row">
+      <form>
+        <ul class="flex-outer">
+          <li>
+            <label for="deuda">Deuda: </label>
+            <input name="deuda" [(ngModel)]="formula.deuda" type="number" id="deuda" placeholder="deuda">
+          </li>
+          <li>
+            <label for="cuota">Cuota: </label>
+            <input name="cuota" [(ngModel)]="formula.cuota" type="number" id="cuota" placeholder="cuota">
+          </li>
+          <li>
+            <label for="tiempo">Tiempo: </label>
+            <input name="tiempo" [(ngModel)]="formula.tiempo" type="number" id="tiempo" placeholder="tiempo">
+          </li>
+          <li>
+            <label for="iteraciones">Iteraciones: </label>
+            <input name="iteraciones" [(ngModel)]="formula.iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
+          </li>
+          <li>
+            <button type="submit" name="button" class="btn btn-primary btn-block" (click)="onCalculate()"> Calcular </button>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Convergencia </h2>
+        <div style="display: block;">
+          <canvas baseChart [datasets]="resultados" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+        </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number }} </b></label>
       </div>
     </div>
   </div>
-
-
-
 
 </ion-content>
