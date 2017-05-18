@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  public tasaPeriodica : number = 0;
   public formula : Formula = {
     deuda: 4.494086295,
     tiempo: 10,
@@ -26,7 +27,7 @@ export class HomePage {
   }
 
   public onCalculate(): void {
-    let result = []
+    let result = [];
 
     for(let i = 0; i<this.formula.iteraciones; i++) {
 
@@ -40,7 +41,7 @@ export class HomePage {
 
 
     }
-
+    this.tasaPeriodica = _.last(result);
     this.resultados = [{
       data: result, label: 'Iteraciones'
     }];
