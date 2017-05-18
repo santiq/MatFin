@@ -12,6 +12,7 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
+    "@angular/animations": "4.1.0",
     "@angular/common": "4.1.0",
     "@angular/compiler": "4.1.0",
     "@angular/compiler-cli": "4.1.0",
@@ -24,8 +25,11 @@
     "@ionic-native/splash-screen": "3.7.0",
     "@ionic-native/status-bar": "3.7.0",
     "@ionic/storage": "2.0.1",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.25",
+    "chart.js": "^2.5.0",
     "ionic-angular": "3.2.1",
     "ionicons": "3.0.0",
+    "ng2-charts": "^1.5.0",
     "rxjs": "5.1.1",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.10"
