@@ -5,13 +5,39 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div>
+    <label>Deuda: </label>
+    <input type="number" [(ngModel)]="formula.deuda" placeholder="deuda">
+  </div>
+  <div>
+    <label>Cuota: </label>
+    <input type="number" [(ngModel)]="formula.cuota" placeholder="cuota">
+  </div>
+  <div>
+    <label>Tiempo: </label>
+    <input type="number" [(ngModel)]="formula.tiempo" placeholder="tiempo">
+  </div>
+  <div>
+    <label>Iteraciones: </label>
+    <input type="number" [(ngModel)]="formula.iteraciones" placeholder="iteraciones">
+  </div>
+
+  <button type="button" name="button" class="btn btn-primary" (click)="onCalculate()"> Calcular </button>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div style="display: block;">
+      <canvas baseChart
+        [datasets]="resultados"
+        [labels]="lineChartLabels"
+        [legend]="false"
+        [chartType]="'line'">
+      </canvas>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </ion-content>
