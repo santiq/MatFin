@@ -21,6 +21,7 @@ dependencies:
     - /usr/local/android-sdk-linux/build-tools/24.0.1
 
   post:
+    - mkdir www
     - ionic cordova platform add android -Y --noresources
     - ionic telemetry on
     - cordova telemetry on
