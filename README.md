@@ -1,17 +1,17 @@
-#Pre requisites
+# Pre requisites
 ```bash
 sudo npm install -g ionic cordova
 npm install
 ```
-#Development
+# Development
 
 ```
  ionic serve
 ```
 
-#Generate APK
+# Generate APK
 
-##Pre requisites
+## Pre requisites
 
 ```
 - echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-25
