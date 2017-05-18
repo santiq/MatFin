@@ -14,7 +14,8 @@
     "target": "es5"
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "node_modules/chart.js/src/chart.js"
   ],
   "exclude": [
     "node_modules"
