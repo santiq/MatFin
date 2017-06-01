@@ -25,6 +25,17 @@
             <input name="tiempo" [(ngModel)]="formula.tiempo" type="number" id="tiempo" placeholder="tiempo">
           </li>
           <li>
+            <label for="momento">Momento de valuacion: </label>
+            <input name="momento" [(ngModel)]="formula.Z" type="number" id="momento" placeholder="momento">
+            <label for="momento" *ngIf="formula.Z < 0">Renta Diferida </label>
+            <label for="momento" *ngIf="formula.Z > 0">Renta Anticipada </label>
+            <label for="momento" *ngIf="formula.Z === 0">Renta Inmediata </label>
+          </li>
+          <li>
+            <label for="TipoDeRenta">Cuota Adelantada?: </label>
+            <input name="TipoDeRenta" [(ngModel)]="formula.tipoRenta" type="checkbox" id="TipoDeRenta" placeholder="TipoDeRenta">
+          </li>
+          <li>
             <label for="iteraciones">Iteraciones: </label>
             <input name="iteraciones" [(ngModel)]="formula.iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
           </li>
@@ -45,7 +56,12 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number }} </b></label>
+        <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="">
+          <label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></label>
       </div>
     </div>
   </div>
