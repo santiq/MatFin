@@ -11,45 +11,38 @@
         <ul>
           <li>
             <label for="deuda">Deuda: </label>
-            <input name="deuda" (ngModelChange)="doCalculation()" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
+            <input name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
           </li>
           <li>
             <label for="cuota">Cuota: </label>
-            <input name="cuota" (ngModelChange)="doCalculation()" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
+            <input name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
           </li>
           <li>
             <label for="tiempo">Tiempo: </label>
-            <input name="tiempo" (ngModelChange)="doCalculation()" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
+            <input name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
           </li>
           <li>
             <label for="momento">Momento de valuacion: </label>
-            <input name="momento" (ngModelChange)="doCalculation()" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
+            <input name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
             <label for="momento" *ngIf="params.Z < 0">Renta Diferida </label>
             <label for="momento" *ngIf="params.Z > 0">Renta Anticipada </label>
             <label for="momento" *ngIf="params.Z === 0">Renta Inmediata </label>
           </li>
           <li>
             <!-- <label for="cuotaAdelantada">Cuota Adelantada</label> -->
-            <!-- Cuota Adelantada:
+            Cuota Adelantada:
               <input name="cuotaAdelantada"
-                (ngModelChange)="doCalculation()"
-                [(ngModel)]="params.cuotaAdelantada"
-                type="radio"
-                [value]="true"> -->
-
-
-            <!-- Cuota Vencida:
-            <input
-              name="cuotaVencida"
-              (ngModelChange)="doCalculation()"
-              [(ngModel)]="params.cuotaAdelantada"
-              type="radio" [value]="false"> -->
+                [checked]="params.cuotaAdelantada"
+                (change)="params.cuotaAdelantada= !params.cuotaAdelantada"
+                type="checkbox"
+                >
           </li>
           <li>
             <label for="iteraciones">Iteraciones: </label>
-            <input name="iteraciones" (ngModelChange)="doCalculation()" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
+            <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
           </li>
         </ul>
+        <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
       </form>
     </div>
     <div class="row">
