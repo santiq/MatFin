@@ -40,7 +40,7 @@ export class DTE implements IFormulaBase {
     }
 
     resultados = [{
-      data, label: 'Iteraciones'
+      data, label: 'Tasa'
     }];
 
     const last: number = _.last(data);
