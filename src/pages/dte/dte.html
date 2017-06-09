@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Determinacion de la tasa efectiva </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div class="row">
+      <form>
+        <ul>
+          <li>
+            <label for="deuda">Deuda: </label>
+            <input name="deuda" (ngModelChange)="doCalculation()" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
+          </li>
+          <li>
+            <label for="cuota">Cuota: </label>
+            <input name="cuota" (ngModelChange)="doCalculation()" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
+          </li>
+          <li>
+            <label for="tiempo">Tiempo: </label>
+            <input name="tiempo" (ngModelChange)="doCalculation()" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
+          </li>
+          <li>
+            <label for="momento">Momento de valuacion: </label>
+            <input name="momento" (ngModelChange)="doCalculation()" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
+            <label for="momento" *ngIf="params.Z < 0">Renta Diferida </label>
+            <label for="momento" *ngIf="params.Z > 0">Renta Anticipada </label>
+            <label for="momento" *ngIf="params.Z === 0">Renta Inmediata </label>
+          </li>
+          <li>
+            <label for="cuotaAdelantada">Cuota Adelantada</label>
+            <input name="cuotaAdelantada" (ngModelChange)="doCalculation()" [(ngModel)]="params.cuotaAdelantada" type="radio" value="yes">
+            <input name="cuotaAdelantada" (ngModelChange)="doCalculation()" [(ngModel)]="params.cuotaAdelantada" type="radio" value="no">
+          </li>
+          <li>
+            <label for="iteraciones">Iteraciones: </label>
+            <input name="iteraciones" (ngModelChange)="doCalculation()" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
+          </li>
+        </ul>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Convergencia </h2>
+        <div style="display: block;">
+          <canvas baseChart [datasets]="resultados" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+        </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="">
+          <label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></label>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
