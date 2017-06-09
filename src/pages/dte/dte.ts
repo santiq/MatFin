@@ -8,10 +8,10 @@ import { DTE, IDTEParams } from '../../api/formulas/DTE/index'
 })
 
 export class DTEPage {
-  public iteraciones: number = 15;
+  public iteraciones: number = 50;
 
   public params: IDTEParams = {
-    tiempo: 0, deuda: 0, cuota: 0, Z: 0, tipoRenta: false
+    tiempo: 10, deuda: 8.7130345602, cuota: 1, Z: 3, cuotaAdelantada: false
   }
 
   public tasaPeriodica : number = 0;

@@ -29,9 +29,21 @@
             <label for="momento" *ngIf="params.Z === 0">Renta Inmediata </label>
           </li>
           <li>
-            <label for="cuotaAdelantada">Cuota Adelantada</label>
-            <input name="cuotaAdelantada" (ngModelChange)="doCalculation()" [(ngModel)]="params.cuotaAdelantada" type="radio" value="yes">
-            <input name="cuotaAdelantada" (ngModelChange)="doCalculation()" [(ngModel)]="params.cuotaAdelantada" type="radio" value="no">
+            <!-- <label for="cuotaAdelantada">Cuota Adelantada</label> -->
+            <!-- Cuota Adelantada:
+              <input name="cuotaAdelantada"
+                (ngModelChange)="doCalculation()"
+                [(ngModel)]="params.cuotaAdelantada"
+                type="radio"
+                [value]="true"> -->
+
+
+            <!-- Cuota Vencida:
+            <input
+              name="cuotaVencida"
+              (ngModelChange)="doCalculation()"
+              [(ngModel)]="params.cuotaAdelantada"
+              type="radio" [value]="false"> -->
           </li>
           <li>
             <label for="iteraciones">Iteraciones: </label>

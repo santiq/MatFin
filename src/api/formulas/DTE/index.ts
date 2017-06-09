@@ -2,7 +2,7 @@ import { IFormulaBase } from '../ibase';
 import * as _ from 'lodash';
 
 export interface IDTEParams {
-  tipoRenta: boolean,
+  cuotaAdelantada: boolean,
   tiempo: number,
   deuda: number,
   cuota: number,
@@ -21,7 +21,8 @@ export class DTE implements IFormulaBase {
 
   constructor() {}
 
-  public calculate(iterations: number, { tiempo, deuda, cuota, Z, tipoRenta } : IDTEParams): IDTEResult {
+  public calculate(iterations: number, { tiempo, deuda, cuota, Z, cuotaAdelantada } : IDTEParams): IDTEResult {
+    console.log(cuotaAdelantada)
     let data : Array<number> = [];
     let resultados: Array<{data: Array<number[]> | number[], label: string}> = [];
 
@@ -29,12 +30,12 @@ export class DTE implements IFormulaBase {
 
       if(i === 0) {
         let xInicial: number = 0.5;
-        let result: number = this.calculation(xInicial, tiempo, deuda, cuota, Z, tipoRenta);
+        let result: number = this.calculation(xInicial, tiempo, deuda, cuota, Z, cuotaAdelantada);
         data.push(result);
 
       } else {
         let xAnterior: number = data[i-1];
-        let result: number = this.calculation(xAnterior, tiempo, deuda, cuota, Z, tipoRenta);
+        let result: number = this.calculation(xAnterior, tiempo, deuda, cuota, Z, cuotaAdelantada);
         data.push(result);
       }
     }
@@ -54,10 +55,17 @@ export class DTE implements IFormulaBase {
     };
   }
 
-  private calculation(xAnterior: number, tiempo: number, vdeuda: number, cuota: number, Z: number, tipoRenta: boolean): number {
-   let VF = function(x: number, Z: number): number {
-     return ( (1 - Math.pow(1 + x, -tiempo)) / x) * Math.pow((1+x), Z + (tipoRenta ? 1: 0) ) ;
-   }
+  private calculation(xAnterior: number, tiempo: number, vdeuda: number, cuota: number, Z: number, cuotaAdelantada: boolean): number {
+  let VF = function(x: number, Z: number): number {
+    // console.log('Valor de Z: ')
+    // console.log(Z)
+    // console.log('Valor Sumado: ')
+    // console.log(cuotaAdelantada ? 1 : 0)
+
+    let exponente: number  = Z + (cuotaAdelantada ? 1 : 0);
+    let tasa: number = x;
+    return ((1 - Math.pow(1 + tasa, -tiempo)) / tasa) * Math.pow((1+tasa), exponente);
+  }
 
    let A: number = xAnterior;
    let B: number = vdeuda/cuota;
