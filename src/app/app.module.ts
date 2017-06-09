@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { DTEPage } from '../pages/dte/dte';
+import { DTEPageCap } from '../pages/dte-cap/dte';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +19,7 @@ import { ChartsModule } from 'ng2-charts';
   declarations: [
     MyApp,
     DTEPage,
+    DTEPageCap,
     TabsPage
   ],
   imports: [
@@ -31,6 +33,7 @@ import { ChartsModule } from 'ng2-charts';
   entryComponents: [
     MyApp,
     DTEPage,
+    DTEPageCap,
     TabsPage
   ],
   providers: [

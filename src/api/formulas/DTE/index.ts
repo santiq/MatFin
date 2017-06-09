@@ -6,7 +6,7 @@ export interface IDTEParams {
   tiempo: number,
   deuda: number,
   cuota: number,
-  Z: number
+  Z?: number
 }
 
 export interface IDTEResult {
@@ -29,7 +29,7 @@ export class DTE implements IFormulaBase {
     for(let i = 0; i< iterations ; i++) {
 
       if(i === 0) {
-        let xInicial: number = 0.5;
+        let xInicial: number = 0.25;
         let result: number = this.calculation(xInicial, tiempo, deuda, cuota, Z, cuotaAdelantada);
         data.push(result);
 

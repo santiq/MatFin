@@ -10,7 +10,7 @@
       <form>
         <ul>
           <li>
-            <label for="deuda">Deuda: </label>
+            <label for="deuda">Ahorro Acumulado: </label>
             <input name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
           </li>
           <li>
@@ -31,15 +31,8 @@
             </select> -->
           </li>
           <li>
-            <label for="tiempo">Tiempo: </label> 
+            <label for="tiempo">Tiempo: </label>
             <input name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
-          </li>
-          <li>
-            <label for="momento">Momento de valuacion: </label>
-            <input name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
-            <label for="momento" *ngIf="params.Z < 0">Renta Diferida </label>
-            <label for="momento" *ngIf="params.Z > 0">Renta Anticipada </label>
-            <label for="momento" *ngIf="params.Z === 0">Renta Inmediata </label>
           </li>
           <li>
             <!-- <label for="cuotaAdelantada">Cuota Adelantada</label> -->

@@ -7,7 +7,7 @@ import { DTE, IDTEParams } from '../../api/formulas/DTE/index'
   templateUrl: 'dte.html'
 })
 
-export class DTEPage {
+export class DTEPageCap {
   public iteraciones: number = 50;
   public periodicidad: number = 12;
   public periodicidades: any = [
@@ -36,8 +36,11 @@ export class DTEPage {
   ]
 
   public tasaEfectivaAnual: number = 0;
+  // Hacer una nueva interface que implemente
+  // Z === Tiempo
+  // Ademas, deuda cambia a Ahorro acumulado
   public params: IDTEParams = {
-    tiempo: 10, deuda: 8.7130345602, cuota: 1, Z: 3, cuotaAdelantada: false
+    tiempo: 10, deuda: 8.7130345602, cuota: 1, cuotaAdelantada: false
   }
 
   public tasaPeriodica : number = 0;
