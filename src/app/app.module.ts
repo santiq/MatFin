@@ -4,7 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { HomePage } from '../pages/home/home';
+import { DTEPage } from '../pages/dte/dte';
+import { DTEPageCap } from '../pages/dte-cap/dte';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,7 +18,8 @@ import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    DTEPage,
+    DTEPageCap,
     TabsPage
   ],
   imports: [
@@ -30,7 +32,8 @@ import { ChartsModule } from 'ng2-charts';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    DTEPage,
+    DTEPageCap,
     TabsPage
   ],
   providers: [

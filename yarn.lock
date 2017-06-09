@@ -103,11 +103,11 @@
     chalk "^1.1.3"
     xml2js "^0.4.17"
 
-"@ionic/cli-plugin-ionic-angular@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ionic/cli-plugin-ionic-angular/-/cli-plugin-ionic-angular-1.0.0.tgz#85a09640361637f5e48a10b93cc1f0e151583a05"
+"@ionic/cli-plugin-ionic-angular@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ionic/cli-plugin-ionic-angular/-/cli-plugin-ionic-angular-1.2.0.tgz#d77bbfdb32639c9d8d1279902aafa08637eb1dc6"
   dependencies:
-    "@ionic/cli-utils" "1.0.0"
+    "@ionic/cli-utils" "1.2.0"
     chalk "^1.1.3"
 
 "@ionic/cli-utils@1.0.0":
@@ -123,6 +123,26 @@
     ncp "^2.0.0"
     os-name "^2.0.1"
     progress "^1.1.8"
+    rimraf "^2.5.4"
+    semver "^5.3.0"
+    slice-ansi "0.0.4"
+    string-width "^2.0.0"
+    superagent "^3.5.2"
+    uuid "^3.0.1"
+
+"@ionic/cli-utils@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ionic/cli-utils/-/cli-utils-1.2.0.tgz#3a8cd62cb636e1f4f2498806c2569cc103bcf077"
+  dependencies:
+    archiver "^1.3.0"
+    chalk "^1.1.3"
+    cross-spawn "^4.0.2"
+    dargs "^5.1.0"
+    inquirer "^3.0.6"
+    leek "0.0.24"
+    minimist "^1.2.0"
+    ncp "^2.0.0"
+    os-name "^2.0.1"
     rimraf "^2.5.4"
     semver "^5.3.0"
     slice-ansi "0.0.4"
@@ -1256,6 +1276,10 @@ currently-unhandled@^0.4.1:
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
   dependencies:
     array-find-index "^1.0.1"
+
+dargs@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/dargs/-/dargs-5.1.0.tgz#ec7ea50c78564cd36c9d5ec18f66329fade27829"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -2541,6 +2565,10 @@ mime@1.3.4, mime@^1.3.4:
 mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
+
+mini.css@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/mini.css/-/mini.css-2.2.0.tgz#7199efb4d5d9ad4bb0773963c4dca70a69bf339c"
 
 minimalistic-assert@^1.0.0:
   version "1.0.0"

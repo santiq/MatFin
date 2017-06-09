@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 
-import { HomePage } from '../home/home';
-
+import { DTEPage } from '../dte/dte';
+import { DTEPageCap } from '../dte-cap/dte';
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
+  tab1Root = DTEPage;
+  tab2Root = DTEPageCap;
 
   constructor() {
 
