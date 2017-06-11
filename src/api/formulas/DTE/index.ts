@@ -2,7 +2,7 @@ import { IFormulaBase } from '../ibase';
 import * as _ from 'lodash';
 
 export interface IDTEParams {
-  cuotaAdelantada: boolean,
+  cuotaAdelantada?: boolean,
   tiempo: number,
   deuda: number,
   cuota: number,
@@ -22,7 +22,6 @@ export class DTE implements IFormulaBase {
   constructor() {}
 
   public calculate(iterations: number, { tiempo, deuda, cuota, Z, cuotaAdelantada } : IDTEParams): IDTEResult {
-    console.log(cuotaAdelantada)
     let data : Array<number> = [];
     let resultados: Array<{data: Array<number[]> | number[], label: string}> = [];
 
@@ -57,11 +56,6 @@ export class DTE implements IFormulaBase {
 
   private calculation(xAnterior: number, tiempo: number, vdeuda: number, cuota: number, Z: number, cuotaAdelantada: boolean): number {
   let VF = function(x: number, Z: number): number {
-    // console.log('Valor de Z: ')
-    // console.log(Z)
-    // console.log('Valor Sumado: ')
-    // console.log(cuotaAdelantada ? 1 : 0)
-
     let exponente: number  = Z + (cuotaAdelantada ? 1 : 0);
     let tasa: number = x;
     return ((1 - Math.pow(1 + tasa, -tiempo)) / tasa) * Math.pow((1+tasa), exponente);
