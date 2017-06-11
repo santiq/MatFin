@@ -8,8 +8,8 @@ import { DTE, IDTEParams } from '../../api/formulas/DTE/index'
 })
 
 export class DTEPage {
-  public iteraciones: number = 50;
-  public periodicidad: number = 12;
+  private iteraciones: number = 200;
+  public periodicidad: number = 1;
   public periodicidades: any = [
     {
       value: 1,

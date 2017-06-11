@@ -22,19 +22,27 @@
         <div class="input-group fluid">
           <label for="tiempo">Tiempo: </label>
           <input name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
-          <label for="momento">Momento de valuacion</label>
-          <input name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
-          <label for="momento" *ngIf="params.Z < 0">Renta Diferida </label>
-          <label for="momento" *ngIf="params.Z > 0">Renta Anticipada </label>
-          <label for="momento" *ngIf="params.Z === 0">Renta Inmediata </label>
+          <label [ngSwitch]="periodicidad">
+            <i *ngSwitchCase="1">Años</i>
+            <i *ngSwitchCase="2">Semestres</i>
+            <i *ngSwitchCase="3">Cuatrimestres</i>
+            <i *ngSwitchCase="4">Trimestres</i>
+            <i *ngSwitchCase="6">Bimestres</i>
+            <i *ngSwitchCase="12">Meses</i>
+          </label>
         </div>
         <div class="input-group fluid">
-          <div class="input-group">
+          <label for="momento">Momento de valuacion</label>
+          <input name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
+          <i for="momento" *ngIf="params.Z < 0">Renta Diferida </i>
+          <i for="momento" *ngIf="params.Z > 0">Renta Anticipada </i>
+          <i for="momento" *ngIf="params.Z === 0">Renta Inmediata </i>
+        </div>
+        <div class="input-group">
             <input type="checkbox" id="check1" tabindex="0" [checked]="params.cuotaAdelantada" (change)="params.cuotaAdelantada = !params.cuotaAdelantada">
             <label for="check1">Cuota Adelantada</label>
-          </div>
-          <label for="iteraciones">Iteraciones</label>
-          <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
+          <!-- <label for="iteraciones">Iteraciones</label> -->
+          <!-- <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones"> -->
         </div>
         <div class="button-group">
           <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
