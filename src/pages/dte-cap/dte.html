@@ -8,72 +8,58 @@
   <div class="container">
     <div class="row">
       <form>
-        <ul>
-          <li>
-            <label for="deuda">Ahorro Acumulado: </label>
-            <input name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
-          </li>
-          <li>
-            <label for="cuota">Cuota: </label>
-            <input name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
-            <select (change)="cambiarPeriodicidad($event.target.value)"  >
-              <option *ngFor="let p of periodicidades" value={{p.value}}>
-                {{p.name}}
-              </option>
-            </select>
-            <!-- <select class="" name="" >
-              <option  [selected]="periodicidad = 1" [value]="1">Anual</option>
-              <option  [selected]="periodicidad = 2" [value]="2">Semestral</option>
-              <option [selected]="periodicidad = 3"  [value]="3">Cuatrimestral</option>
-              <option [selected]="periodicidad = 4"  [value]="4">Trimestral</option>
-              <option [selected]="periodicidad = 6"  [value]="6">Bimestral</option>
-              <option [selected]="periodicidad = 12"  [value]="12">Mensual</option>
-            </select> -->
-          </li>
-          <li>
-            <label for="tiempo">Tiempo: </label>
-            <input name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
-          </li>
-          <li>
-            <!-- <label for="cuotaAdelantada">Cuota Adelantada</label> -->
-            Cuota Adelantada:
-            <input name="cuotaAdelantada" [checked]="params.cuotaAdelantada" (change)="params.cuotaAdelantada= !params.cuotaAdelantada" type="checkbox">
-          </li>
-          <li>
-            <label for="iteraciones">Iteraciones: </label>
-            <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
-          </li>
-        </ul>
-        <div class="row">
+        <div class="input-group fluid">
+          <label for="deuda">Ahorro Acumulado</label>
+          <input name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
+          <label for="cuota">Cuota</label>
+          <input name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
+          <select (change)="cambiarPeriodicidad($event.target.value)">
+            <option *ngFor="let p of periodicidades" value={{p.value}}>
+              {{p.name}}
+            </option>
+          </select>
+        </div>
+        <div class="input-group fluid">
+          <label for="tiempo">Tiempo: </label>
+          <input name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
+          <label [ngSwitch]="periodicidad">
+            <i *ngSwitchCase="1">Años</i>
+            <i *ngSwitchCase="2">Semestres</i>
+            <i *ngSwitchCase="3">Cuatrimestres</i>
+            <i *ngSwitchCase="4">Trimestres</i>
+            <i *ngSwitchCase="6">Bimestres</i>
+            <i *ngSwitchCase="12">Meses</i>
+          </label>
+        </div>
+
+        <div class="button-group">
           <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
+        </div>
+
+        <div class="col-xs-12">
+          <h2>Convergencia </h2>
+          <div style="display: block;">
+            <canvas baseChart [datasets]="resultados" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+        </canvas>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="">
+            <label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="">
+            <label class=""> <b> Tasa Efectiva Anual: {{ tasaEfectivaAnual | percent: '1.2-4' }} </b></label>
+          </div>
         </div>
       </form>
     </div>
-    <br>
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>Convergencia </h2>
-        <div style="display: block;">
-          <canvas baseChart [datasets]="resultados" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
-        </canvas>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="">
-        <label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="">
-        <label class=""> <b> Tasa Efectiva Anual: {{ tasaEfectivaAnual | percent: '1.2-4' }} </b></label>
-      </div>
-    </div>
   </div>
-
 </ion-content>

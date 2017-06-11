@@ -8,8 +8,8 @@ import { DTE, IDTEParams } from '../../api/formulas/DTE/index'
 })
 
 export class DTEPageCap {
-  public iteraciones: number = 50;
-  public periodicidad: number = 12;
+  public iteraciones: number = 200;
+  public periodicidad: number = 1;
   public periodicidades: any = [
     {
       value: 1,
@@ -40,7 +40,7 @@ export class DTEPageCap {
   // Z === Tiempo
   // Ademas, deuda cambia a Ahorro acumulado
   public params: IDTEParams = {
-    tiempo: 10, deuda: 8.7130345602, cuota: 1, cuotaAdelantada: false
+    tiempo: 10, deuda: 1000000, cuota: 24000
   }
 
   public tasaPeriodica : number = 0;
@@ -64,7 +64,9 @@ export class DTEPageCap {
 
   public doCalculation(): void {
     const DeterminadorDeTasaEfectiva = new DTE();
-    const TasaEfectiva = DeterminadorDeTasaEfectiva.calculate(this.iteraciones, this.params);
+    const parameters = Object.assign({}, this.params, { Z: this.params.tiempo, cuotaAdelantada: false  })
+
+    const TasaEfectiva = DeterminadorDeTasaEfectiva.calculate(this.iteraciones, parameters);
     this.resultados = TasaEfectiva.resultados;
     this.errorRelativo = TasaEfectiva.errorRelativo;
     this.tasaPeriodica = TasaEfectiva.tasaPeriodica;
