@@ -1,15 +1,12 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Determinacion de la tasa efectiva </ion-title>
-  </ion-navbar>
-</ion-header>
-
+<ion-navbar>
+  <ion-title>Determinacion de tasa efectiva</ion-title>
+</ion-navbar>
 <ion-content padding>
   <div class="container">
     <div class="row">
       <form>
         <div class="input-group fluid">
-          <label for="deuda">Deuda</label>
+          <label for="deuda">Ahorro Acumulado</label>
           <input name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
           <label for="cuota">Cuota</label>
           <input name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
@@ -31,19 +28,7 @@
             <i *ngSwitchCase="12">Meses</i>
           </label>
         </div>
-        <div class="input-group fluid">
-          <label for="momento">Momento de valuacion</label>
-          <input name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
-          <i for="momento" *ngIf="params.Z < 0">Renta Diferida </i>
-          <i for="momento" *ngIf="params.Z > 0">Renta Anticipada </i>
-          <i for="momento" *ngIf="params.Z === 0">Renta Inmediata </i>
-        </div>
-        <div class="input-group">
-            <input type="checkbox" id="check1" tabindex="0" [checked]="params.cuotaAdelantada" (change)="params.cuotaAdelantada = !params.cuotaAdelantada">
-            <label for="check1">Cuota Adelantada</label>
-          <!-- <label for="iteraciones">Iteraciones</label> -->
-          <!-- <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones"> -->
-        </div>
+
         <div class="button-group">
           <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
         </div>

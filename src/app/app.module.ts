@@ -4,9 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { DTEPage } from '../pages/dte/dte';
-import { DTEPageCap } from '../pages/dte-cap/dte';
-import { TabsPage } from '../pages/tabs/tabs';
+import { CapitalizacionMenuPage } from '../pages/capitalizacion-menu/capitalizacion-menu';
+import { DTEPageCap } from '../pages/capitalizacion-menu/components/dte/dte';
+import { FinanciacionMenuPage } from '../pages/financiacion-menu/financiacion-menu';
+import { DTEPageFin } from '../pages/financiacion-menu/components/dte/dte';
+
+import { MenuPage } from '../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,9 +21,10 @@ import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     MyApp,
-    DTEPage,
-    DTEPageCap,
-    TabsPage
+    MenuPage,
+    CapitalizacionMenuPage,
+    FinanciacionMenuPage,
+    DTEPageCap
   ],
   imports: [
     NgbModule.forRoot(),
@@ -32,9 +36,10 @@ import { ChartsModule } from 'ng2-charts';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    DTEPage,
-    DTEPageCap,
-    TabsPage
+    MenuPage,
+    CapitalizacionMenuPage,
+    FinanciacionMenuPage,
+    DTEPageCap
   ],
   providers: [
     StatusBar,

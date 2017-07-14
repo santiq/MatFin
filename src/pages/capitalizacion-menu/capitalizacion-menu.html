@@ -1,0 +1,8 @@
+<ion-navbar>
+  <ion-title>Determinacion </ion-title>
+</ion-navbar>
+<ion-list inset>
+  <button ion-item *ngFor="let page of pages" (click)="go(page.component)">
+    {{ page.name }}
+  </button> 
+</ion-list>
