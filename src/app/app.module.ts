@@ -24,7 +24,8 @@ import { ChartsModule } from 'ng2-charts';
     MenuPage,
     CapitalizacionMenuPage,
     FinanciacionMenuPage,
-    DTEPageCap
+    DTEPageCap,
+    DTEPageFin
   ],
   imports: [
     NgbModule.forRoot(),
@@ -39,7 +40,8 @@ import { ChartsModule } from 'ng2-charts';
     MenuPage,
     CapitalizacionMenuPage,
     FinanciacionMenuPage,
-    DTEPageCap
+    DTEPageCap,
+    DTEPageFin
   ],
   providers: [
     StatusBar,
