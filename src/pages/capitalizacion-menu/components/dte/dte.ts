@@ -7,7 +7,7 @@ import { DTE, IDTEParams } from '../../../../api/formulas/DTE/index'
 })
 
 export class DTEPageCap {
-  public iteraciones: number = 200;
+  public iteraciones: number = 50;
   public periodicidad: number = 1;
   public periodicidades: any = [
     {
