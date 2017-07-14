@@ -2,7 +2,7 @@
   "name": "mate-fin",
   "version": "0.0.1",
   "author": "Santiago Quinteros",
-  "homepage": "http://github.com/santiq/MateFin",
+  "homepage": "http://github.com/santiq/MatFin",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
