@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { CapitalizacionMenuPage } from '../capitalizacion-menu/capitalizacion-menu';
 import { FinanciacionMenuPage } from '../financiacion-menu/financiacion-menu';
+import { InversionesMenuPage } from '../inversiones-menu/inversiones-menu';
 
 @Component({
   templateUrl: 'menu.html'
@@ -19,6 +20,8 @@ export class MenuPage {
         return this.navCtrl.push(CapitalizacionMenuPage)
       case 'financiacion-menu':
         return this.navCtrl.push(FinanciacionMenuPage)
+      case 'financiacion-menu':
+        return this.navCtrl.push(InversionesMenuPage)
     }
   }
 }
