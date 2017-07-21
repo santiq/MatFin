@@ -7,17 +7,23 @@
   <div class="container">
     <div class="row">
       <form>
-        <div class="col-md-4">
-             Flujo de fondos
-             Hacer un ngFor de la lista
+        <h1>Flujo de fondos</h1>
+
+        <div *ngFor="let flujo of flujosFondo; let in = index">
+          {{ in }} -
+          <input type="number" name="flujo-{{in}}" [(ngModel)]="flujo.value">
         </div>
 
         <div class="col-md-4"> 
             R - Tasa de rendimiento requerida
+            <input type="number" name="tasa-requerida-r" [(ngModel)]="r">
         </div>
 
+        <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
+
         <div class="col-md-4">
-             VAN
+          <div class="row">VAN: {{ van }}</div>
+          <div class="row"> {{ van >= 0 ? "Inversion Aceptada" : "Inversion Rechazada" }} </div>
         </div>
       </form>
     </div>
