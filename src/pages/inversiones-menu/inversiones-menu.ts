@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-// import { DTEPageFin } from './components/dte/dte';
+import { VanPage } from './components/van/van';
 
 @Component({
   templateUrl: 'inversiones-menu.html'
@@ -17,7 +17,7 @@ export class InversionesMenuPage {
   },
   {
     name: 'Valor Actual Neto (VAN)',
-    // component: DTEPageFin,
+    component: VanPage,
   },
   ]
   go(page: string) {

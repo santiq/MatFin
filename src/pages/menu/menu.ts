@@ -20,7 +20,7 @@ export class MenuPage {
         return this.navCtrl.push(CapitalizacionMenuPage)
       case 'financiacion-menu':
         return this.navCtrl.push(FinanciacionMenuPage)
-      case 'financiacion-menu':
+      case 'inversiones-menu':
         return this.navCtrl.push(InversionesMenuPage)
     }
   }
