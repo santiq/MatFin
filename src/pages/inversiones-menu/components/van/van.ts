@@ -14,6 +14,9 @@ export class VanPage {
   constructor(public navCtrl: NavController) {
     this.doCalculation();
   }
+  public agregarFlujo(): void {
+    this.flujosFondo.push({ value: 0 });
+  }
 
   public doCalculation(): void {
     this.van = this.flujosFondo.reduce((prev, curr, index, array) => {
