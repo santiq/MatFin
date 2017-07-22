@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { VanPage } from './components/van/van';
+import { TirPage } from './components/tir/tir';
 
 @Component({
   templateUrl: 'inversiones-menu.html'
@@ -13,7 +14,7 @@ export class InversionesMenuPage {
   }
   pages = [{
     name: 'Tasa Interna de Retorno (TIR)',
-    // component: DTEPageFin,
+    component: TirPage,
   },
   {
     name: 'Valor Actual Neto (VAN)',

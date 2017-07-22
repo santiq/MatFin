@@ -11,6 +11,8 @@ import { DTEPageFin } from '../pages/financiacion-menu/components/dte/dte';
 
 import { InversionesMenuPage } from '../pages/inversiones-menu/inversiones-menu';
 import { VanPage } from '../pages/inversiones-menu/components/van/van';
+import { TirPage } from '../pages/inversiones-menu/components/tir/tir';
+
 
 import { MenuPage } from '../pages/menu/menu';
 
@@ -30,7 +32,8 @@ import { ChartsModule } from 'ng2-charts';
     DTEPageCap,
     DTEPageFin,
     InversionesMenuPage,
-    VanPage
+    VanPage,
+    TirPage
   ],
   imports: [
     NgbModule.forRoot(),
@@ -48,7 +51,8 @@ import { ChartsModule } from 'ng2-charts';
     DTEPageCap,
     DTEPageFin,
     InversionesMenuPage,
-    VanPage
+    VanPage,
+    TirPage
     
   ],
   providers: [
