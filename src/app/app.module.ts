@@ -9,6 +9,9 @@ import { DTEPageCap } from '../pages/capitalizacion-menu/components/dte/dte';
 import { FinanciacionMenuPage } from '../pages/financiacion-menu/financiacion-menu';
 import { DTEPageFin } from '../pages/financiacion-menu/components/dte/dte';
 
+import { InversionesMenuPage } from '../pages/inversiones-menu/inversiones-menu';
+import { VanPage } from '../pages/inversiones-menu/components/van/van';
+
 import { MenuPage } from '../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,7 +28,9 @@ import { ChartsModule } from 'ng2-charts';
     CapitalizacionMenuPage,
     FinanciacionMenuPage,
     DTEPageCap,
-    DTEPageFin
+    DTEPageFin,
+    InversionesMenuPage,
+    VanPage
   ],
   imports: [
     NgbModule.forRoot(),
@@ -41,7 +46,10 @@ import { ChartsModule } from 'ng2-charts';
     CapitalizacionMenuPage,
     FinanciacionMenuPage,
     DTEPageCap,
-    DTEPageFin
+    DTEPageFin,
+    InversionesMenuPage,
+    VanPage
+    
   ],
   providers: [
     StatusBar,
