@@ -20,10 +20,27 @@
 
         <div class="col-md-4"> 
             R - Tasa de rendimiento
-            {{ r }}
+            <b>{{ r }} </b>
         </div>
 
         <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
+
+        <div class="col-xs-12">
+          <h2>Convergencia - Newton Raphson </h2>
+          <div style="display: block;">
+          <canvas baseChart [datasets]="Convergencia" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+          </canvas>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <h2>Tasa Iterada </h2>
+          <div style="display: block;">
+          <canvas baseChart [datasets]="TasaIterada" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+          </canvas>
+          </div>
+        </div>
+
 
       </form>
     </div>
