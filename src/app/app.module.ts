@@ -6,11 +6,17 @@ import { MyApp } from './app.component';
 
 import { CapitalizacionMenuPage } from '../pages/capitalizacion-menu/capitalizacion-menu';
 import { DTEPageCap } from '../pages/capitalizacion-menu/components/dte/dte';
+import { CapitalFuturoCAPPage } from '../pages/capitalizacion-menu/components/capital-futuro/capital-futuro';
+import { TiempoCAPPage } from '../pages/capitalizacion-menu/components/tiempo/tiempo';
+import { CuotaCAPPage } from '../pages/capitalizacion-menu/components/cuota/cuota';
+
 import { FinanciacionMenuPage } from '../pages/financiacion-menu/financiacion-menu';
 import { DTEPageFin } from '../pages/financiacion-menu/components/dte/dte';
 
 import { InversionesMenuPage } from '../pages/inversiones-menu/inversiones-menu';
 import { VanPage } from '../pages/inversiones-menu/components/van/van';
+import { TirPage } from '../pages/inversiones-menu/components/tir/tir';
+
 
 import { MenuPage } from '../pages/menu/menu';
 
@@ -30,7 +36,12 @@ import { ChartsModule } from 'ng2-charts';
     DTEPageCap,
     DTEPageFin,
     InversionesMenuPage,
-    VanPage
+    VanPage,
+    TirPage,
+    CapitalFuturoCAPPage,
+    TiempoCAPPage,
+    CuotaCAPPage
+
   ],
   imports: [
     NgbModule.forRoot(),
@@ -48,7 +59,11 @@ import { ChartsModule } from 'ng2-charts';
     DTEPageCap,
     DTEPageFin,
     InversionesMenuPage,
-    VanPage
+    VanPage,
+    TirPage,
+    CapitalFuturoCAPPage,
+    TiempoCAPPage,
+    CuotaCAPPage
     
   ],
   providers: [
