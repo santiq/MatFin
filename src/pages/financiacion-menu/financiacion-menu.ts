@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { DTEPageFin } from './components/dte/dte';
+import { CuotaPageFin } from './components/cuota-financiacion/cuota';
 
 @Component({
   templateUrl: 'financiacion-menu.html'
@@ -17,7 +18,7 @@ export class FinanciacionMenuPage {
   },
   {
     name: 'Cuota',
-    component: DTEPageFin,
+    component: CuotaPageFin,
   },
   {
     name: 'Tiempo',
