@@ -7,6 +7,7 @@ import { DTE, IDTEParams } from '../../../../api/formulas/DTE/index'
 })
 
 export class DTEPageFin {
+  public aproximacionBaily: number = 0;
   private iteraciones: number = 50;
   public periodicidad: number = 1;
   public periodicidades: any = [
@@ -70,5 +71,8 @@ export class DTEPageFin {
     for(let i =0; i < TasaEfectiva.resultados[0].data.length; i++){
       this.lineChartLabels.push(`${i+1}`);
     }
+    this.aproximacionBaily = DeterminadorDeTasaEfectiva.getH(
+      this.params.cuota, this.params.tiempo, this.params.deuda, this.params.Z, this.params.cuotaAdelantada
+    )
   }
 }
