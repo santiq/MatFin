@@ -20,10 +20,8 @@ export class CuotaPageFin {
   }
 
   public doCalculation(): void {
-    let g = Math.pow((1+this.Tasa), this.Tiempo) -1;
-    let h = this.Tasa * Math.pow((1 + this.Tasa), this.MomentoValuacion + (this.CuotaAdelantada ? 1: 0)  )
-    this.Cuota = this.Deuda / ( g  / h );
-
-    console.log(this.Cuota);
+    let g = this.Tasa / (1 - Math.pow((1 + this.Tasa), -this.Tiempo) )
+    let h = 1 / Math.pow((1+this.Tasa), this.MomentoValuacion)
+    this.Cuota = this.Deuda * (g * h) ;
   }
 }

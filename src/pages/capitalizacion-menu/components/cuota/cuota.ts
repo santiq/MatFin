@@ -1,79 +1,28 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DTE, IDTEParams } from '../../../../api/formulas/DTE/index'
 
 @Component({
   templateUrl: 'cuota.html'
 })
 
 export class CuotaCAPPage {
-  public iteraciones: number = 50;
-  public periodicidad: number = 1;
-  public periodicidades: any = [
-    {
-      value: 1,
-      name: 'Anual'
-    },
-    {
-      value: 2,
-      name: 'Semestral'
-    },{
-      value: 3,
-      name: 'Cuatrimestral'
-    },{
-      value: 4,
-      name: 'Trimestral'
-    },
-    {
-      value: 6,
-      name: 'Bimestral'
-    },
-    {
-      value: 12,
-      name: 'Mensual'
-    }
-  ]
 
-  public tasaEfectivaAnual: number = 0;
-  // Hacer una nueva interface que implemente
-  // Z === Tiempo
-  // Ademas, deuda cambia a Ahorro acumulado
-  public params: IDTEParams = {
-    tiempo: 10, deuda: 1000000, cuota: 24000
-  }
+  public Tasa = 0.1;
+  public Deuda = 100000;
+  public Tiempo = 10;
+  public CuotaAdelantada = false;
 
-  public tasaPeriodica : number = 0;
-
-  public resultados:Array<{data: Array<number[]> | number[], label: string}> = [
-    {data: [], label: 'Iteraciones'}
-  ];
-
-  public errorRelativo : number;
-
-  public lineChartLabels:Array<any> = ['1','2','3','4','5'];
+  public Cuota = 0;
 
   constructor(public navCtrl: NavController) {
     this.doCalculation();
   }
 
-  public cambiarPeriodicidad(value){
-    this.periodicidad = value
-    // this.tasaEfectivaAnual = Math.pow(1 + this.tasaPeriodica, this.periodicidad) - 1 ;
-  }
-
   public doCalculation(): void {
-    const DeterminadorDeTasaEfectiva = new DTE();
-    const parameters = Object.assign({}, this.params, { Z: this.params.tiempo, cuotaAdelantada: false  })
+    let g = this.Tasa / (1 - Math.pow((1 + this.Tasa), -this.Tiempo))
 
-    const TasaEfectiva = DeterminadorDeTasaEfectiva.calculate(this.iteraciones, parameters);
-    this.resultados = TasaEfectiva.resultados;
-    this.errorRelativo = TasaEfectiva.errorRelativo;
-    this.tasaPeriodica = TasaEfectiva.tasaPeriodica;
-    this.tasaEfectivaAnual = Math.pow(1 + this.tasaPeriodica, this.periodicidad) - 1 ;
-    /* Fill lineChartLabels for all iterations */
-    this.lineChartLabels = [];
-    for(let i =0; i < TasaEfectiva.resultados[0].data.length; i++){
-      this.lineChartLabels.push(`${i+1}`);
-    }
+    let h = 1 / Math.pow((1 + this.Tasa), this.Tiempo)
+
+    this.Cuota = this.Deuda * (g * h);
   }
 }

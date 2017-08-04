@@ -4,43 +4,29 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="container">
-    <div class="row">
-      <form>
-        <div class="input-group fluid">
-          <label for="deuda">Deuda</label>
-          <input name="deuda" [(ngModel)]="Deuda" type="number" id="deuda" placeholder="deuda">
-        </div>
-        <div class="input-group fluid">
-          <label for="tiempo">Tiempo: </label>
-          <input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo">
-        </div>
-        <div class="input-group fluid">
-          <label for="momento">Momento de valuacion</label>
-          <input name="momento" [(ngModel)]="MomentoValuacion" type="number" id="momento" placeholder="momento">
-          <i for="momento" *ngIf="MomentoValuacion < 0">Renta Diferida </i>
-          <i for="momento" *ngIf="MomentoValuacion > 0">Renta Anticipada </i>
-          <i for="momento" *ngIf="MomentoValuacion === 0">Renta Inmediata </i>
-        </div>
-        <div class="input-group">
-            <input type="checkbox" id="check1" tabindex="0" [checked]="CuotaAdelantada" (change)="CuotaAdelantada = CuotaAdelantada">
-            <label for="check1">Cuota Adelantada</label>
-        </div>
-
-
-        <div class="button-group">
-          <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
-        </div>
-
-
-        <div class="row">
-          <div class="col-xs-12">
-            <label class=""> <b> Cuota: {{ Cuota | number: '1.2-10' }} </b></label>
-          </div>
-        </div>
-        
-        
-      </form>
-    </div>
-  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Deuda</ion-label>
+      <ion-input name="deuda" [(ngModel)]="Deuda" type="number" id="deuda" placeholder="deuda"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Tasa</ion-label>
+      <ion-input name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Tiempo</ion-label>
+      <ion-input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Momento Valuacion</ion-label>
+      <ion-input name="momento" [(ngModel)]="MomentoValuacion" type="number" id="momento" placeholder="momento"></ion-input>
+      <i for="momento" *ngIf="MomentoValuacion < 0">Renta Diferida </i>
+      <i for="momento" *ngIf="MomentoValuacion > 0">Renta Anticipada </i>
+      <i for="momento" *ngIf="MomentoValuacion === 0">Renta Inmediata </i>
+    </ion-item>
+    <ion-item>
+        <button ion-button full (click)="doCalculation()"> Calcular </button>
+    </ion-item>
+    <label class=""> <b> Cuota: $ {{ Cuota | number: '1.1' }} </b></label>
+  </ion-list>
 </ion-content>
