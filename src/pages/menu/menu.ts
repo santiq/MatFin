@@ -22,6 +22,8 @@ export class MenuPage {
         return this.navCtrl.push(FinanciacionMenuPage)
       case 'inversiones-menu':
         return this.navCtrl.push(InversionesMenuPage)
+      case 'prestamos-menu':
+        // return this.navCtrl.push(InversionesMenuPage)
     }
   }
 }

@@ -12,6 +12,7 @@ import { CuotaCAPPage } from '../pages/capitalizacion-menu/components/cuota/cuot
 
 import { FinanciacionMenuPage } from '../pages/financiacion-menu/financiacion-menu';
 import { DTEPageFin } from '../pages/financiacion-menu/components/dte/dte';
+import { CuotaPageFin } from '../pages/financiacion-menu/components/cuota-financiacion/cuota';
 
 import { InversionesMenuPage } from '../pages/inversiones-menu/inversiones-menu';
 import { VanPage } from '../pages/inversiones-menu/components/van/van';
@@ -40,7 +41,8 @@ import { ChartsModule } from 'ng2-charts';
     TirPage,
     CapitalFuturoCAPPage,
     TiempoCAPPage,
-    CuotaCAPPage
+    CuotaCAPPage,
+    CuotaPageFin
 
   ],
   imports: [
@@ -63,7 +65,8 @@ import { ChartsModule } from 'ng2-charts';
     TirPage,
     CapitalFuturoCAPPage,
     TiempoCAPPage,
-    CuotaCAPPage
+    CuotaCAPPage,
+    CuotaPageFin
     
   ],
   providers: [

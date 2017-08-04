@@ -20,7 +20,7 @@ export class CapitalizacionMenuPage {
   },
   {
     name: 'Cuota',
-    component: DTEPageCap,
+    component: CuotaCAPPage,
   },
   {
     name: 'Tiempo',
