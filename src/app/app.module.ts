@@ -14,6 +14,7 @@ import { FinanciacionMenuPage } from '../pages/financiacion-menu/financiacion-me
 import { DTEPageFin } from '../pages/financiacion-menu/components/dte/dte';
 import { CuotaPageFin } from '../pages/financiacion-menu/components/cuota-financiacion/cuota';
 import { TiempoPageFin } from '../pages/financiacion-menu/components/tiempo-financiacion/tiempo';
+import { DeudaPageFin } from '../pages/financiacion-menu/components/deuda-financiacion/deuda';
 
 import { InversionesMenuPage } from '../pages/inversiones-menu/inversiones-menu';
 import { VanPage } from '../pages/inversiones-menu/components/van/van';
@@ -44,7 +45,8 @@ import { ChartsModule } from 'ng2-charts';
     TiempoCAPPage,
     CuotaCAPPage,
     TiempoPageFin,
-    CuotaPageFin
+    CuotaPageFin,
+    DeudaPageFin
 
   ],
   imports: [
@@ -70,7 +72,7 @@ import { ChartsModule } from 'ng2-charts';
     CuotaCAPPage,
     CuotaPageFin,
     TiempoPageFin,
-    
+    DeudaPageFin
   ],
   providers: [
     StatusBar,
