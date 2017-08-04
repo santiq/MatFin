@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Financiacion: Cuota </ion-title>
+    <ion-title>Capitalizacion: Cuota </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -17,13 +17,10 @@
       <ion-label fixed>Tiempo</ion-label>
       <ion-input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
     </ion-item>
-    <!-- <ion-item>
-      <ion-label fixed>Momento Valuacion</ion-label>
-      <ion-input name="momento" [(ngModel)]="MomentoValuacion" type="number" id="momento" placeholder="momento"></ion-input>
-      <i for="momento" *ngIf="MomentoValuacion < 0">Renta Diferida </i>
-      <i for="momento" *ngIf="MomentoValuacion > 0">Renta Anticipada </i>
-      <i for="momento" *ngIf="MomentoValuacion === 0">Renta Inmediata </i>
-    </ion-item> -->
+    <ion-item>
+      <ion-label>Cuota Adelantada</ion-label>
+      <ion-checkbox [(ngModel)]="CuotaAdelantada"></ion-checkbox>
+    </ion-item>
     <ion-item>
       <button ion-button full (click)="doCalculation()"> Calcular </button>
     </ion-item>

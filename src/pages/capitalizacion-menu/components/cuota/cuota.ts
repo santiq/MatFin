@@ -21,8 +21,16 @@ export class CuotaCAPPage {
   public doCalculation(): void {
     let g = this.Tasa / (1 - Math.pow((1 + this.Tasa), -this.Tiempo))
 
-    let h = 1 / Math.pow((1 + this.Tasa), this.Tiempo)
+    let h = 1 / Math.pow((1 + this.Tasa), this.getExponent())
 
     this.Cuota = this.Deuda * (g * h);
+  }
+
+  private getExponent() {
+    if (this.CuotaAdelantada) {
+      return this.Tiempo + 1
+    } else {
+      return this.Tiempo;
+    }
   }
 }
