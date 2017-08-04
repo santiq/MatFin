@@ -11,7 +11,7 @@ export class CapitalFuturoCAPPage {
   // public MomentoValuacion = 3;
   public CuotaAdelantada = false;
   public Cuota = 12227.302;
-  public Deuda = 0;
+  public ValorFuturo = 0;
 
   constructor(public navCtrl: NavController) {
     this.doCalculation();
@@ -20,7 +20,7 @@ export class CapitalFuturoCAPPage {
   public doCalculation(): void {
     let g = (1 - (Math.pow((1 + this.Tasa), -this.Tiempo))) / this.Tasa;
     let h = Math.pow((1 + this.Tasa), this.getExponent())
-    this.Deuda = this.Cuota * (g * h);
+    this.ValorFuturo = this.Cuota * (g * h);
   }
 
   private getExponent() {

@@ -24,7 +24,7 @@ export class CapitalizacionMenuPage {
   },
   {
     name: 'Tiempo',
-    component: DTEPageCap,
+    component: TiempoCAPPage,
   },
   {
     name: 'Valor Futuro',
