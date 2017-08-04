@@ -8,7 +8,7 @@ import { NavController } from 'ionic-angular';
 export class CuotaCAPPage {
 
   public Tasa = 0.1;
-  public Deuda = 100000;
+  public ValorFuturo = 100000;
   public Tiempo = 10;
   public CuotaAdelantada = false;
 
@@ -21,8 +21,16 @@ export class CuotaCAPPage {
   public doCalculation(): void {
     let g = this.Tasa / (1 - Math.pow((1 + this.Tasa), -this.Tiempo))
 
-    let h = 1 / Math.pow((1 + this.Tasa), this.Tiempo)
+    let h = 1 / Math.pow((1 + this.Tasa), this.getExponent())
 
-    this.Cuota = this.Deuda * (g * h);
+    this.Cuota = this.ValorFuturo * (g * h);
+  }
+
+  private getExponent() {
+    if (this.CuotaAdelantada) {
+      return this.Tiempo + 1
+    } else {
+      return this.Tiempo;
+    }
   }
 }

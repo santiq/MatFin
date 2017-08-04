@@ -2,27 +2,26 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'cuota.html'
+  templateUrl: 'deuda.html'
 })
 
-export class CuotaPageFin {
+export class DeudaPageFin {
 
   public Tasa = 0.1;
-  public Deuda = 100000;
   public Tiempo = 10;
-  public MomentoValuacion =  3;
+  public MomentoValuacion = 3;
   public CuotaAdelantada = false;
-
-  public Cuota = 0;
+  public Cuota = 12227.302;
+  public Deuda = 0;
 
   constructor(public navCtrl: NavController) {
     this.doCalculation();
   }
 
   public doCalculation(): void {
-    let g = this.Tasa / (1 - Math.pow((1 + this.Tasa), -this.Tiempo) )
-    let h = 1 / Math.pow((1+this.Tasa), this.getExponent())
-    this.Cuota = this.Deuda * (g * h) ;
+    let g = (1 - (Math.pow((1 + this.Tasa), -this.Tiempo))) / this.Tasa;
+    let h = Math.pow((1+this.Tasa), this.getExponent())
+    this.Deuda = this.Cuota * (g * h);
   }
 
   private getExponent() {

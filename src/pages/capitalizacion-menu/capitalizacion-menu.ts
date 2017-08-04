@@ -24,11 +24,11 @@ export class CapitalizacionMenuPage {
   },
   {
     name: 'Tiempo',
-    component: DTEPageCap,
+    component: TiempoCAPPage,
   },
   {
     name: 'Valor Futuro',
-    component: DTEPageCap,
+    component: CapitalFuturoCAPPage,
   },
   ]
   go(page: string) {

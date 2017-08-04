@@ -18,6 +18,10 @@
       <ion-input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label>Cuota Adelantada</ion-label>
+      <ion-checkbox [(ngModel)]="CuotaAdelantada"></ion-checkbox>
+    </ion-item>
+    <ion-item>
       <ion-label fixed>Momento Valuacion</ion-label>
       <ion-input name="momento" [(ngModel)]="MomentoValuacion" type="number" id="momento" placeholder="momento"></ion-input>
       <i for="momento" *ngIf="MomentoValuacion < 0">Renta Diferida </i>
