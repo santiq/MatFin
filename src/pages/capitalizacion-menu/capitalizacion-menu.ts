@@ -28,7 +28,7 @@ export class CapitalizacionMenuPage {
   },
   {
     name: 'Valor Futuro',
-    component: DTEPageCap,
+    component: CapitalFuturoCAPPage,
   },
   ]
   go(page: string) {

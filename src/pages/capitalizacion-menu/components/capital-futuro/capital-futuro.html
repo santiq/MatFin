@@ -1,64 +1,36 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Capitalizacion: Determinacion Capital Futuro</ion-title>
+    <ion-title>Capitalizacion: Valor Futuro </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="container">
-    <div class="row">
-      <form>
-        <div class="input-group fluid">
-          <label for="deuda">Ahorro Acumulado</label>
-          <input name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
-          <label for="cuota">Cuota</label>
-          <input name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
-          <select (change)="cambiarPeriodicidad($event.target.value)">
-            <option *ngFor="let p of periodicidades" value={{p.value}}>
-              {{p.name}}
-            </option>
-          </select>
-        </div>
-        <div class="input-group fluid">
-          <label for="tiempo">Tiempo: </label>
-          <input name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
-          <label [ngSwitch]="periodicidad">
-            <i *ngSwitchCase="1">Años</i>
-            <i *ngSwitchCase="2">Semestres</i>
-            <i *ngSwitchCase="3">Cuatrimestres</i>
-            <i *ngSwitchCase="4">Trimestres</i>
-            <i *ngSwitchCase="6">Bimestres</i>
-            <i *ngSwitchCase="12">Meses</i>
-          </label>
-        </div>
-
-        <div class="button-group">
-          <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
-        </div>
-
-        <div class="col-xs-12">
-          <h2>Convergencia </h2>
-          <div style="display: block;">
-            <canvas baseChart [datasets]="resultados" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
-        </canvas>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12">
-            <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="">
-            <label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="">
-            <label class=""> <b> Tasa Efectiva Anual: {{ tasaEfectivaAnual | percent: '1.2-4' }} </b></label>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Cuota</ion-label>
+      <ion-input name="cuota" [(ngModel)]="Cuota" type="number" id="cuota" placeholder="cuota"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Tasa</ion-label>
+      <ion-input name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Tiempo</ion-label>
+      <ion-input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cuota Adelantada</ion-label>
+      <ion-checkbox [(ngModel)]="CuotaAdelantada"></ion-checkbox>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label fixed>Momento Valuacion</ion-label>
+      <ion-input name="momento" [(ngModel)]="MomentoValuacion" type="number" id="momento" placeholder="momento"></ion-input>
+      <i for="momento" *ngIf="MomentoValuacion < 0">Renta Diferida </i>
+      <i for="momento" *ngIf="MomentoValuacion > 0">Renta Anticipada </i>
+      <i for="momento" *ngIf="MomentoValuacion === 0">Renta Inmediata </i>
+    </ion-item> -->
+    <ion-item>
+      <button ion-button full (click)="doCalculation()"> Calcular </button>
+    </ion-item>
+    <label class=""> <b> Deuda: $ {{ Deuda | number: '1.1' }} </b></label>
+  </ion-list>
 </ion-content>
