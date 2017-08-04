@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { DTEPageFin } from './components/dte/dte';
 import { CuotaPageFin } from './components/cuota-financiacion/cuota';
+import { TiempoPageFin } from './components/tiempo-financiacion/tiempo';
 
 @Component({
   templateUrl: 'financiacion-menu.html'
@@ -10,7 +11,6 @@ import { CuotaPageFin } from './components/cuota-financiacion/cuota';
 export class FinanciacionMenuPage {
 
   constructor(public navCtrl: NavController) {
-
   }
   pages = [{
     name: 'Tasa efectiva',
@@ -22,7 +22,7 @@ export class FinanciacionMenuPage {
   },
   {
     name: 'Tiempo',
-    component: DTEPageFin,
+    component: TiempoPageFin,
   },
   {
     name: 'Deuda',
