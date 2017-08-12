@@ -5,6 +5,8 @@ import { CapitalizacionMenuPage } from '../capitalizacion-menu/capitalizacion-me
 import { FinanciacionMenuPage } from '../financiacion-menu/financiacion-menu';
 import { InversionesMenuPage } from '../inversiones-menu/inversiones-menu';
 
+import { SistemasMenuPage } from '../sistema-menu/sistema-menu';
+
 @Component({
   templateUrl: 'menu.html'
 })
@@ -22,8 +24,8 @@ export class MenuPage {
         return this.navCtrl.push(FinanciacionMenuPage)
       case 'inversiones-menu':
         return this.navCtrl.push(InversionesMenuPage)
-      case 'prestamos-menu':
-        // return this.navCtrl.push(InversionesMenuPage)
+      case 'sistemas-menu':
+        return this.navCtrl.push(SistemasMenuPage)
     }
   }
 }
