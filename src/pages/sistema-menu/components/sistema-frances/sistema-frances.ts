@@ -12,6 +12,8 @@ export class SistemaFrancesPage {
   public deuda: number = 100000;
   public tasaInteres: number = 0.04;
   public tiempo: number = 36;
+  public porcentajeDeuda = 50;
+
   public resultado:any = {
 
   };
@@ -21,7 +23,7 @@ export class SistemaFrancesPage {
 
   public doCalculation(): void {
     const sistemaFrances = new SistemaFrances();
-    this.resultado = sistemaFrances.calcular(this.deuda, this.tasaInteres, this.tiempo);
+    this.resultado = sistemaFrances.calcular(this.deuda, this.tasaInteres, this.tiempo, this.porcentajeDeuda);
     console.log(this.resultado)
   }
 }
