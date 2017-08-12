@@ -40,8 +40,10 @@
         <div class="input-group">
             <input type="checkbox" id="check1" tabindex="0" [checked]="params.cuotaAdelantada" (change)="params.cuotaAdelantada = !params.cuotaAdelantada">
             <label for="check1">Cuota Adelantada</label>
-          <!-- <label for="iteraciones">Iteraciones</label> -->
-          <!-- <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones"> -->
+        </div>
+        <div class="input-group">
+          <label for="iteraciones">Iteraciones</label>
+          <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
         </div>
         <div class="button-group">
           <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
@@ -55,11 +57,11 @@
           </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-xs-12">
             <label class=""> <b> Aproximacion de baily: {{ aproximacionBaily | number: '1.2-10' }} </b></label>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-xs-12">
             <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
