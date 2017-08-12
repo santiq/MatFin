@@ -28,6 +28,7 @@ export class DTE implements IFormulaBase {
     for(let i = 0; i< iterations ; i++) {
 
       if(i === 0) {
+        // let xInicial: number = this.getH(cuota, tiempo, deuda, Z, cuotaAdelantada);
         let xInicial: number = 0.25;
         let result: number = this.calculation(xInicial, tiempo, deuda, cuota, Z, cuotaAdelantada);
         data.push(result);
@@ -68,4 +69,19 @@ export class DTE implements IFormulaBase {
 
     return A / (1 - (D/C))
   }
+
+  /**
+   * Aproximacion de Baily
+   */
+  public getH(cuota: number, tiempo: number, deuda: number, momentoValudacion: number, cuotaAdelantada: boolean ): number {
+    console.log('Capitalizacion momento de valuacion')
+    console.log(momentoValudacion)
+    let exponente = (2 / ( - 2 * momentoValudacion + tiempo + 1));
+    let h = Math.pow((cuota * tiempo / deuda), exponente)  - 1
+
+    console.log("Aproximacion de baily")
+    console.log(h)
+    return h;
+  }
+
 }

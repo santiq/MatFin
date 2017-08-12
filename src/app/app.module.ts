@@ -21,6 +21,9 @@ import { VanPage } from '../pages/inversiones-menu/components/van/van';
 import { TirPage } from '../pages/inversiones-menu/components/tir/tir';
 
 
+import { SistemasMenuPage } from '../pages/sistema-menu/sistema-menu';
+import { SistemaFrancesPage } from '../pages/sistema-menu/components/sistema-frances/sistema-frances';
+
 import { MenuPage } from '../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -46,7 +49,9 @@ import { ChartsModule } from 'ng2-charts';
     CuotaCAPPage,
     TiempoPageFin,
     CuotaPageFin,
-    DeudaPageFin
+    DeudaPageFin,
+    SistemasMenuPage,
+    SistemaFrancesPage
 
   ],
   imports: [
@@ -72,7 +77,9 @@ import { ChartsModule } from 'ng2-charts';
     CuotaCAPPage,
     CuotaPageFin,
     TiempoPageFin,
-    DeudaPageFin
+    DeudaPageFin,
+    SistemasMenuPage,
+    SistemaFrancesPage
   ],
   providers: [
     StatusBar,

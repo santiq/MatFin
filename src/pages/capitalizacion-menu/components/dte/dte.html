@@ -30,6 +30,11 @@
             <i *ngSwitchCase="12">Meses</i>
           </label>
         </div>
+        
+        <div class="input-group">
+          <label for="iteraciones">Iteraciones</label>
+          <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
+        </div>
 
         <div class="button-group">
           <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
@@ -42,7 +47,12 @@
           </canvas>
           </div>
         </div>
-
+<!--         
+        <div class="row">
+          <div class="col-xs-12">
+            <label class=""> <b> Aproximacion de baily: {{ aproximacionBaily | number: '1.2-10' }} </b></label>
+          </div>
+        </div> -->
         <div class="row">
           <div class="col-xs-12">
             <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>

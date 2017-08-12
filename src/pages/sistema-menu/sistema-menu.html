@@ -1,0 +1,9 @@
+<ion-navbar>
+  <ion-title>Sistemas de Amortizacion </ion-title>
+</ion-navbar>
+
+<ion-list inset>
+  <button ion-item *ngFor="let page of pages" (click)="go(page.component)">
+    {{ page.name }}
+  </button> 
+</ion-list>

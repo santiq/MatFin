@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Sistema Frances </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Deuda</ion-label>
+      <ion-input type="number" [(ngModel)]="deuda" name="deuda"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Tasa de Interes</ion-label>
+      <ion-input type="number" [(ngModel)]="tasaInteres" name="tasaInteres"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Tiempo</ion-label>
+      <ion-input type="number" [(ngModel)]="tiempo" name="tiempo"></ion-input>
+    </ion-item>
+
+    <ion-item padding>
+      <button ion-button color="primary" (click)="doCalculation()" block > Calcular </button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cuota: $ {{ resultado.cuota| number:'1.1-2' }} </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Amortizacion Primer Periodo: $  {{ resultado.amortizacionPrimerPeriodo| number:'1.1-2' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Interes Primer Periodo: $ {{ resultado.interesPrimerPeriodo | number:'1.1-2' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tasa Amortizacion: {{ resultado.tasaAmortizacion | percent }}</ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
