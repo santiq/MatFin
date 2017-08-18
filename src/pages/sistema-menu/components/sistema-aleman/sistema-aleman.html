@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Sistema Frances </ion-title>
+    <ion-title>Sistema Aleman </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -27,11 +27,11 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Cuota: $ {{ resultado.cuota| number:'1.1-2' }} </ion-label>
+      <ion-label>Cuota Primer Periodo: $ {{ resultado.cuotaPrimerPeriodo| number:'1.1-2' }} </ion-label>
     </ion-item>
 
     <ion-item>
-      <ion-label>Amortizacion Primer Periodo: $  {{ resultado.amortizacionPrimerPeriodo| number:'1.1-2' }}</ion-label>
+      <ion-label>Amortizacion Constante: $  {{ resultado.amortizacionConstantes| number:'1.1-2' }}</ion-label>
     </ion-item>
 
     <ion-item>
@@ -75,9 +75,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Amortizacion del periodo: $ {{ resultado.periodoAnalisis.amortizacion | number:'1.1-2' }}</ion-label>
+      <ion-label> Cuota del periodo: $ {{ resultado.periodoAnalisis.cuotaPeriodica | number:'1.1-2' }} </ion-label>
     </ion-item>
-
     <ion-item>
       <ion-label>Interes del periodo: $ {{ resultado.periodoAnalisis.interes | number:'1.1-2' }}</ion-label>
     </ion-item>

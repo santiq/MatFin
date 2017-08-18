@@ -23,6 +23,7 @@ import { TirPage } from '../pages/inversiones-menu/components/tir/tir';
 
 import { SistemasMenuPage } from '../pages/sistema-menu/sistema-menu';
 import { SistemaFrancesPage } from '../pages/sistema-menu/components/sistema-frances/sistema-frances';
+import { SistemaAlemanPage } from '../pages/sistema-menu/components/sistema-aleman/sistema-aleman';
 
 import { MenuPage } from '../pages/menu/menu';
 
@@ -51,7 +52,8 @@ import { ChartsModule } from 'ng2-charts';
     CuotaPageFin,
     DeudaPageFin,
     SistemasMenuPage,
-    SistemaFrancesPage
+    SistemaFrancesPage,
+    SistemaAlemanPage
 
   ],
   imports: [
@@ -79,7 +81,8 @@ import { ChartsModule } from 'ng2-charts';
     TiempoPageFin,
     DeudaPageFin,
     SistemasMenuPage,
-    SistemaFrancesPage
+    SistemaFrancesPage,
+    SistemaAlemanPage
   ],
   providers: [
     StatusBar,
