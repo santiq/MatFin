@@ -19,7 +19,7 @@ export class SistemaAleman {
   }
 
   private calcularTiempoNecesarioParaCancelarUnPorcentajeDeDeuda(porcentajeDeuda: number, tiempo: number): number {
-    return porcentajeDeuda * tiempo;
+    return porcentajeDeuda * tiempo / 100;
   }
 
   public calcular(deuda: any, tasaInteres: any, tiempo: any, porcentajeDeuda: any, periodo: any) {
@@ -59,7 +59,7 @@ export class SistemaAleman {
     const interes = cuotaPeriodica - amortizacionConstante;
     const totalAmortizado = periodo * amortizacionConstante;
 
-    const porcentajeTotalAmortizado = (totalAmortizado / deuda) * 100;
+    const porcentajeTotalAmortizado = (totalAmortizado / deuda);
 
     const deudaSubsistente = deuda - totalAmortizado;
 

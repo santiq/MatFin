@@ -71,7 +71,7 @@ export class SistemaFrances {
     const amortizacion = amortizacionPrimerPeriodo * Math.pow(1 + tasaInteres, (periodo - 1));
     const interes = cuota - amortizacion;
     const totalAmortizado = (amortizacionPrimerPeriodo / tasaInteres) * (Math.pow((1 + tasaInteres), periodo) - 1)
-    const porcentajeTotalAmortizado = (totalAmortizado / deuda) * 100;
+    const porcentajeTotalAmortizado = (totalAmortizado / deuda);
     const deudaSubsistente = deuda - totalAmortizado;
     const interesPagados = (cuota * periodo) - totalAmortizado;
 
