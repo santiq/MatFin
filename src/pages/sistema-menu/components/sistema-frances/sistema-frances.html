@@ -63,6 +63,44 @@
     </ion-item>
   </ion-item-group>
 
+  <ion-item-group>
+
+    <ion-list-header>
+      Periodo de analisis
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label fixed>Periodo</ion-label>
+      <ion-input type="number" [(ngModel)]="periodoAnalisis" name="periodoAnalisis"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Amortizacion del periodo: $ {{ resultado.periodoAnalisis.amortizacion | number:'1.1-2' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Interes del periodo: $ {{ resultado.periodoAnalisis.interes | number:'1.1-2' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Total Amortizado: $ {{ resultado.periodoAnalisis.totalAmortizado | number:'1.1-2' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Porcentaje Total Amortizado: $ {{ resultado.periodoAnalisis.porcentajeTotalAmortizado | percent:'1.1-2' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Deuda Subsistente: {{ resultado.periodoAnalisis.deudaSubsistente | number:'1.1-2' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Intereses pagados: $ {{ resultado.periodoAnalisis.interesPagados | number:'1.1-2' }}</ion-label>
+    </ion-item>
+
+  </ion-item-group>
+
+
   </ion-list>
 
 </ion-content>
