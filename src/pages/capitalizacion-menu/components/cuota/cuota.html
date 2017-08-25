@@ -7,22 +7,22 @@
   <ion-list>
     <ion-item>
       <ion-label fixed>Valor Futuro</ion-label>
-      <ion-input (ngModelChange)="ValorFuturo = convertToNumber($event)"  name="valorFuturo" [(ngModel)]="ValorFuturo" type="number" id="valorFuturo" placeholder="Valor Futuro"></ion-input>
+      <ion-input name="valorFuturo" [(ngModel)]="ValorFuturo" type="number" id="valorFuturo" placeholder="Valor Futuro"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Tasa</ion-label>
-      <ion-input (ngModelChange)="Tasa = convertToNumber($event)"  name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
+      <ion-input name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Tiempo</ion-label>
-      <ion-input (ngModelChange)="Tiempo = convertToNumber($event)"  name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
+      <ion-input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Cuota Adelantada</ion-label>
       <ion-checkbox [(ngModel)]="CuotaAdelantada"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <button ion-button full (click)="doCalculation()"> Calcular </button>
+      <button ion-button full (click)="doCalculation(Tasa, Tiempo, ValorFuturo, CuotaAdelantada)"> Calcular </button>
     </ion-item>
     <label class=""> <b> Cuota: $ {{ Cuota | number: '1.1' }} </b></label>
   </ion-list>

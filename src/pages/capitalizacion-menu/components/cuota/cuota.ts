@@ -6,31 +6,34 @@ import { NavController } from 'ionic-angular';
 })
 
 export class CuotaCAPPage {
-  public convertToNumber(event): number { return +event; }
-  public Tasa = 0.1;
-  public ValorFuturo = 100000;
-  public Tiempo = 10;
+  public Tasa: number = 0.1;
+  public ValorFuturo: number = 100000;
+  public Tiempo: number = 10;
   public CuotaAdelantada = false;
 
-  public Cuota = 0;
+  public Cuota: number = 0;
 
   constructor(public navCtrl: NavController) {
-    this.doCalculation();
+    this.doCalculation(this.Tasa, this.Tiempo, this.ValorFuturo, this.CuotaAdelantada);
   }
 
-  public doCalculation(): void {
-    let g = this.Tasa / (1 - Math.pow((1 + this.Tasa), -this.Tiempo))
+  public doCalculation(tasa, tiempo, valorFuturo, cuotaAdelantada): void {
+    let _tasa = parseFloat(tasa);
+    let _tiempo = parseFloat(tiempo);
+    let _valorFuturo = parseFloat(valorFuturo);
 
-    let h = 1 / Math.pow((1 + this.Tasa), this.getExponent())
+    let g = +_tasa / (1 - Math.pow((1 + _tasa), -_tiempo))
 
-    this.Cuota = this.ValorFuturo * (g * h);
+    let h = 1 / Math.pow((1 + _tasa), this.getExponent(_tiempo, cuotaAdelantada))
+
+    this.Cuota = _valorFuturo * (g * h);
   }
 
-  private getExponent() {
+  private getExponent(tiempo, cuotaAdelantada) {
     if (this.CuotaAdelantada) {
-      return this.Tiempo + 1
+      return tiempo + 1
     } else {
-      return this.Tiempo;
+      return tiempo;
     }
   }
 }
