@@ -7,7 +7,6 @@ import { NavController } from 'ionic-angular';
 })
 
 export class TiempoPageFin {
-  public convertToNumber(event): number { return parseFloat(event); }
   public Tasa = 0.1;
   public Deuda = 100000;
   public MomentoValuacion =  3;
