@@ -8,7 +8,7 @@ import { SistemaAleman } from '../../../../providers/sistemas-amortizacion/alema
 })
 
 export class SistemaAlemanPage {
-
+  public convertToNumber(event): number { return +event; }
   public deuda: number = 100000;
   public tasaInteres: number = 0.04;
   public tiempo: number = 36;

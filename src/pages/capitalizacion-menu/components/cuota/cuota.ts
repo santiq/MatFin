@@ -6,7 +6,7 @@ import { NavController } from 'ionic-angular';
 })
 
 export class CuotaCAPPage {
-
+  public convertToNumber(event): number { return +event; }
   public Tasa = 0.1;
   public ValorFuturo = 100000;
   public Tiempo = 10;

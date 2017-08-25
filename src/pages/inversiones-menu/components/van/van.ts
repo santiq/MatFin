@@ -6,7 +6,7 @@ import { NavController } from 'ionic-angular';
 })
 
 export class VanPage {
-  
+  public convertToNumber(event): number { return +event; }
   public flujosFondo: any[] = [{ value: 1000 },{ value: 1500 }, { value: 2000 }, { value: 2500 }];
   public r: number = 0.1;
   public van: number;

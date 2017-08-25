@@ -7,6 +7,7 @@ import { DTE, IDTEParams } from '../../../../api/formulas/DTE/index'
 })
 
 export class DTEPageFin {
+  public convertToNumber(event): number { return +event; }
   public aproximacionBaily: number = 0;
   private iteraciones: number = 50;
   public periodicidad: number = 1;

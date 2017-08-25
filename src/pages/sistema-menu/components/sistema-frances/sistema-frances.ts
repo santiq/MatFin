@@ -8,7 +8,7 @@ import { SistemaFrances } from '../../../../providers/sistemas-amortizacion/fran
 })
 
 export class SistemaFrancesPage {
-
+  public convertToNumber(event): number { return +event; }
   public deuda: number = 100000;
   public tasaInteres: number = 0.04;
   public tiempo: number = 36;
