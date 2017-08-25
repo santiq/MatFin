@@ -9,9 +9,9 @@
       <form>
         <div class="input-group fluid">
           <label for="deuda">Deuda</label>
-          <input name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
+          <input name="deuda" (ngModelChange)="params.deuda = convertToNumber($event)" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
           <label for="cuota">Cuota</label>
-          <input name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
+          <input name="cuota" (ngModelChange)="params.cuota = convertToNumber($event)" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
           <select (change)="cambiarPeriodicidad($event.target.value)">
             <option *ngFor="let p of periodicidades" value={{p.value}}>
               {{p.name}}
@@ -20,7 +20,7 @@
         </div>
         <div class="input-group fluid">
           <label for="tiempo">Tiempo: </label>
-          <input name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
+          <input (ngModelChange)="params.tiempo = convertToNumber($event)" name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
           <label [ngSwitch]="periodicidad">
             <i *ngSwitchCase="1">Años</i>
             <i *ngSwitchCase="2">Semestres</i>
@@ -32,7 +32,7 @@
         </div>
         <div class="input-group fluid">
           <label for="momento">Momento de valuacion</label>
-          <input name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
+          <input (ngModelChange)="params.Z = convertToNumber($event)" name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
           <i for="momento" *ngIf="params.Z < 0">Renta Diferida </i>
           <i for="momento" *ngIf="params.Z > 0">Renta Anticipada </i>
           <i for="momento" *ngIf="params.Z === 0">Renta Inmediata </i>
@@ -43,7 +43,7 @@
         </div>
         <div class="input-group">
           <label for="iteraciones">Iteraciones</label>
-          <input name="iteraciones" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
+          <input name="iteraciones"  (ngModelChange)="iteraciones = convertToNumber($event)" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
         </div>
         <div class="button-group">
           <button type="button" name="button" (click)="doCalculation()"> Calcular </button>

@@ -7,15 +7,15 @@
   <ion-list>
     <ion-item>
       <ion-label fixed>Deuda</ion-label>
-      <ion-input name="deuda" [(ngModel)]="Deuda" type="number" id="deuda" placeholder="deuda"></ion-input>
+      <ion-input   (ngModelChange)="Deuda = convertToNumber($event)" name="deuda" [(ngModel)]="Deuda" type="number" id="deuda" placeholder="deuda"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Tasa</ion-label>
-      <ion-input name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
+      <ion-input  (ngModelChange)="Tasa = convertToNumber($event)"  name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Cuota</ion-label>
-      <ion-input name="cuota" [(ngModel)]="Cuota" type="number" id="cuota" placeholder="cuota"></ion-input>
+      <ion-input  (ngModelChange)="Cuota = convertToNumber($event)"  name="cuota" [(ngModel)]="Cuota" type="number" id="cuota" placeholder="cuota"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Cuota Adelantada</ion-label>
@@ -23,7 +23,7 @@
     </ion-item>
     <ion-item>
       <ion-label fixed>Momento Valuacion</ion-label>
-      <ion-input name="momento" [(ngModel)]="MomentoValuacion" type="number" id="momento" placeholder="momento"></ion-input>
+      <ion-input name="momento"  (ngModelChange)="MomentoValuacion = convertToNumber($event)" [(ngModel)]="MomentoValuacion" type="number" id="momento" placeholder="momento"></ion-input>
       <i for="momento" *ngIf="MomentoValuacion < 0">Renta Diferida </i>
       <i for="momento" *ngIf="MomentoValuacion > 0">Renta Anticipada </i>
       <i for="momento" *ngIf="MomentoValuacion === 0">Renta Inmediata </i>

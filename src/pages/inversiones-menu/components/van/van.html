@@ -21,7 +21,7 @@
 
         <div class="row"> 
             R - Tasa de rendimiento requerida
-            <input type="number" name="tasa-requerida-r" [(ngModel)]="r">
+            <input type="number" (ngModelChange)="r = convertToNumber($event)" name="tasa-requerida-r" [(ngModel)]="r">
         </div>
 
         <button ion-button block  (click)="doCalculation()">Calcular</button>
