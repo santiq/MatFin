@@ -29,7 +29,7 @@
       <i for="momento" *ngIf="MomentoValuacion === 0">Renta Inmediata </i>
     </ion-item>
     <ion-item>
-        <button ion-button full (click)="doCalculation(Deuda, Tasa, Tiempo, MomentoValuacion)"> Calcular </button>
+        <button ion-button full (click)="doCalculation(Deuda, Tasa, Tiempo, MomentoValuacion, CuotaAdelantada)"> Calcular </button>
     </ion-item>
     <label class=""> <b> Cuota: $ {{ Cuota | number: '1.1' }} </b></label>
   </ion-list>
