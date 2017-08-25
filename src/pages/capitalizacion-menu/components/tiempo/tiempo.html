@@ -7,15 +7,15 @@
   <ion-list>
     <ion-item>
       <ion-label fixed>Valor Futuro</ion-label>
-      <ion-input (ngModelChange)="ValorFuturo = convertToNumber($event)" name="valofuturo" [(ngModel)]="ValorFuturo" type="number" id="valofuturo" placeholder="Valo Futuro"></ion-input>
+      <ion-input name="valofuturo" [(ngModel)]="ValorFuturo" type="number" id="valofuturo" placeholder="Valo Futuro"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Tasa</ion-label>
-      <ion-input (ngModelChange)="Tasa = convertToNumber($event)" name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
+      <ion-input name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Cuota</ion-label>
-      <ion-input (ngModelChange)="Cuota = convertToNumber($event)" name="cuota" [(ngModel)]="Cuota" type="number" id="cuota" placeholder="cuota"></ion-input>
+      <ion-input name="cuota" [(ngModel)]="Cuota" type="number" id="cuota" placeholder="cuota"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Cuota Adelantada</ion-label>
@@ -25,7 +25,7 @@
   </ion-list>
 
   <ion-row responsive-sm>
-    <button ion-button (click)="doCalculation()" block> Calcular</button>
+    <button ion-button (click)="doCalculation(ValorFuturo, Tasa, Cuota, CuotaAdelantada)" block> Calcular</button>
   </ion-row>
 
 </ion-content>
