@@ -6,7 +6,7 @@ import { NavController } from 'ionic-angular';
 })
 
 export class TirPage {
-  public convertToNumber(event): number { return +event; }
+  public convertToNumber(event): number { return parseFloat(event); }
   public flujosFondo: any[] = [{ value: -7988.342468 },{ value: 2000 }, { value: 3200 }, { value: 4300 }, { value: 1020 }];
   private iterations = 30;
   public r: number;
