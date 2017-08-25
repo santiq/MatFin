@@ -7,7 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 
 export class TiempoPageFin {
-  public convertToNumber(event): number { return +event; }
+  public convertToNumber(event): number { return parseFloat(event); }
   public Tasa = 0.1;
   public Deuda = 100000;
   public MomentoValuacion =  3;
@@ -17,24 +17,29 @@ export class TiempoPageFin {
   public Tiempo = 0;
 
   constructor(public navCtrl: NavController) {
-    this.doCalculation();
+    this.doCalculation(this.Deuda, this.Tasa, this.Cuota, this.MomentoValuacion, this.CuotaAdelantada);
   }
 
 
-  public doCalculation(): void {
-    let j = this.Deuda / Math.pow((1 + this.Tasa), this.getExponent())
-    let h = (this.Tasa / this.Cuota);
+  public doCalculation(deuda, tasa, cuota, momentoValuacion, cuotaAdelantada): void {
+    let _deuda = parseFloat(deuda);
+    let _tasa = parseFloat(tasa);
+    let _cuota = parseFloat(cuota);
+    let _momentoValuacion = parseFloat(momentoValuacion);
+
+    let j = _deuda / Math.pow((1 + _tasa), this.getExponent(_momentoValuacion, cuotaAdelantada))
+    let h = (_tasa / _cuota);
     let A = 1 - (j * h);
-    let B = 1 + this.Tasa;
+    let B = 1 + _tasa;
 
     this.Tiempo = Math.log(A) / -Math.log(B)
   }
 
-  private getExponent() {
-    if(this.CuotaAdelantada) {
-      return this.MomentoValuacion + 1
+  private getExponent(momentoValuacion, cuotaAdelantada) {
+    if(cuotaAdelantada) {
+      return momentoValuacion + 1
     } else {
-      return this.MomentoValuacion;
+      return momentoValuacion;
     }
   }
 
