@@ -61,7 +61,32 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     BrowserAnimationsModule,
     ChartsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {}, {
+      links: [
+        { component: MenuPage, name: 'Menu', segment: 'menu' },
+
+        { component: CapitalizacionMenuPage, name: 'CapitalizacionMenu', segment: 'menu/capitalizacion' },
+        { component: DTEPageCap, name: 'CapitalizacionDTE', segment: 'menu/capitalizacion/DTE' },
+        { component: CuotaCAPPage, name: 'CapitalizacionCuota', segment: 'menu/capitalizacion/cuota' },
+        { component: TiempoCAPPage, name: 'CapitalizacionTiempo', segment: 'menu/capitalizacion/tiempo' },
+        { component: CapitalFuturoCAPPage, name: 'CapitalizacionCapitalFuturo', segment: 'menu/capitalizacion/capital-futuro' },
+
+        { component: FinanciacionMenuPage, name: 'FinanciacionMenu', segment: 'menu/financiacion' },
+        { component: DTEPageFin, name: 'FinanciacionDTE', segment: 'menu/financiacion/DTE' },
+        { component: CuotaPageFin, name: 'FinanciacionCuota', segment: 'menu/financiacion/cuota' },
+        { component: TiempoPageFin, name: 'FinanciacionTiempo', segment: 'menu/financiacion/tiempo' },
+        { component: DeudaPageFin, name: 'FinanciacionDeuda', segment: 'menu/financiacion/deuda' },
+        
+        { component: InversionesMenuPage, name: 'InversionesMenu', segment: 'menu/inversiones' },
+        { component: VanPage, name: 'InversionesVAN', segment: 'menu/inversiones/van' },
+        { component: TirPage, name: 'InversionesTIR', segment: 'menu/inversiones/tir' },
+
+        { component: SistemasMenuPage, name: 'SistemasMenu', segment: 'menu/sistemas' },
+        { component: SistemaFrancesPage, name: 'SistemaFrances', segment: 'menu/sistemas/frances' },
+        { component: SistemaAlemanPage, name: 'SistemaAleman', segment: 'menu/sistemas/aleman' },
+
+      ]
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
