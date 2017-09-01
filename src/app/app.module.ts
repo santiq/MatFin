@@ -19,6 +19,7 @@ import { DeudaPageFin } from '../pages/financiacion-menu/components/deuda-financ
 import { InversionesMenuPage } from '../pages/inversiones-menu/inversiones-menu';
 import { VanPage } from '../pages/inversiones-menu/components/van/van';
 import { TirPage } from '../pages/inversiones-menu/components/tir/tir';
+import { ValuacionAccionesPage } from '../pages/inversiones-menu/components/valuacion-acciones/valuacion-acciones';
 
 
 import { SistemasMenuPage } from '../pages/sistema-menu/sistema-menu';
@@ -53,6 +54,7 @@ import { ChartsModule } from 'ng2-charts';
     DeudaPageFin,
     SistemasMenuPage,
     SistemaFrancesPage,
+    ValuacionAccionesPage,
     SistemaAlemanPage
 
   ],
@@ -80,6 +82,7 @@ import { ChartsModule } from 'ng2-charts';
         { component: InversionesMenuPage, name: 'InversionesMenu', segment: 'menu/inversiones' },
         { component: VanPage, name: 'InversionesVAN', segment: 'menu/inversiones/van' },
         { component: TirPage, name: 'InversionesTIR', segment: 'menu/inversiones/tir' },
+        { component: ValuacionAccionesPage, name: 'InversionesValuacionAcciones', segment: 'menu/inversiones/valuacion-acciones'},
 
         { component: SistemasMenuPage, name: 'SistemasMenu', segment: 'menu/sistemas' },
         { component: SistemaFrancesPage, name: 'SistemaFrances', segment: 'menu/sistemas/frances' },
@@ -105,6 +108,7 @@ import { ChartsModule } from 'ng2-charts';
     CuotaPageFin,
     TiempoPageFin,
     DeudaPageFin,
+    ValuacionAccionesPage,
     SistemasMenuPage,
     SistemaFrancesPage,
     SistemaAlemanPage
