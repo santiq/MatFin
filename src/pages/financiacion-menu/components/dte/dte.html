@@ -10,6 +10,7 @@
         <div class="input-group fluid">
           <label for="deuda">Deuda</label>
           <input name="deuda" (ngModelChange)="params.deuda = convertToNumber($event)" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
+          <br/>
           <label for="cuota">Cuota</label>
           <input name="cuota" (ngModelChange)="params.cuota = convertToNumber($event)" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
           <select (change)="cambiarPeriodicidad($event.target.value)">
@@ -57,11 +58,11 @@
           </div>
         </div>
 
-        <!-- <div class="row">
+        <div class="row">
           <div class="col-xs-12">
             <label class=""> <b> Aproximacion de baily: {{ aproximacionBaily | number: '1.2-10' }} </b></label>
           </div>
-        </div> -->
+        </div>
         <div class="row">
           <div class="col-xs-12">
             <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
