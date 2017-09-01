@@ -10,7 +10,7 @@ export class ValuacionAccionesPage {
   public Tasa: number;
   public TasaDividendo: number;
   public PrecioTeorico: number;
-
+  public PETeorico: number;
   constructor(public navCtrl: NavController) {
     this.Dividendos = 4.27;
     this.Tasa = 0.36;
@@ -26,6 +26,7 @@ export class ValuacionAccionesPage {
     console.log(dividendo, tasa, tasaDividendo)
     console.log(_dividendo, _tasa, _tasaDividendo)
     this.PrecioTeorico = _dividendo / (_tasa - _tasaDividendo );
+    this.PETeorico = this.PrecioTeorico / _dividendo;
 
   }
 
