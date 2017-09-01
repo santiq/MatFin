@@ -9,7 +9,8 @@
       <form>
         <div class="input-group fluid">
           <label for="deuda">Ahorro Acumulado</label>
-          <input (ngModelChange)="params.deuda = convertToNumber($event)" name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
+          <input (ngModelChange)="params.deuda = convertToNumber($event)" name="deuda" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="Ahorro acumulado">
+          <br />
           <label for="cuota">Cuota</label>
           <input (ngModelChange)="params.cuota = convertToNumber($event)" name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
           <select (change)="cambiarPeriodicidad($event.target.value)">
