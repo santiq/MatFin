@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Interes Simple: Capital</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Monto</ion-label>
+      <ion-input name="monto" [(ngModel)]="Monto" type="number" id="monto" placeholder="monto"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Tasa*</ion-label>
+      <ion-input name="tasa" [(ngModel)]="Tasa" type="number" id="tasa" placeholder="tasa"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Tiempo</ion-label>
+      <ion-input name="Tiempo"
+        [(ngModel)]="Tiempo"
+        type="number"
+        id="Tiempo"
+        placeholder="Tiempo">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button full (click)="doCalculation(Monto, Tasa, Tiempo)"> Calcular </button>
+    </ion-item>
+    <ion-item>
+      <ion-label> <b> Capital: $ {{ Capital | number: '1.1' }} </b></ion-label>
+    </ion-item>
+    <ion-item>
+      <label class=""> <b> Intereses: $ {{ Monto - Capital | number: '1.1' }} </b></label>
+    </ion-item>
+  </ion-list>
+</ion-content>

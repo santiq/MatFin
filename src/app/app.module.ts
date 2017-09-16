@@ -27,6 +27,11 @@ import { SistemaFrancesPage } from '../pages/sistema-menu/components/sistema-fra
 import { SistemaAlemanPage } from '../pages/sistema-menu/components/sistema-aleman/sistema-aleman';
 
 import { InteresSimpleMenuPage } from '../pages/interes-simple-menu/interes-simple-menu';
+import { InteresSimpleMontoPage } from '../pages/interes-simple-menu/components/monto/interes-simple-monto.ts';
+import { InteresSimpleCapitalPage } from '../pages/interes-simple-menu/components/capital/interes-simple-capital.ts';
+import { InteresSimpleTasaPage } from '../pages/interes-simple-menu/components/tasa/interes-simple-tasa.ts';
+import { InteresSimpleTiempoPage } from '../pages/interes-simple-menu/components/tiempo/interes-simple-tiempo.ts';
+
 import { InteresCompuestoMenuPage } from '../pages/interes-compuesto-menu/interes-compuesto-menu';
 import { InteresCompuestoMontoPage } from '../pages/interes-compuesto-menu/components/monto/interes-compuesto-monto.ts';
 import { InteresCompuestoCapitalPage } from '../pages/interes-compuesto-menu/components/capital/interes-compuesto-capital.ts';
@@ -69,6 +74,10 @@ import { ChartsModule } from 'ng2-charts';
     InteresCompuestoCapitalPage,
     InteresCompuestoTasaPage,
     InteresCompuestoTiempoPage,
+    InteresSimpleMontoPage,
+    InteresSimpleCapitalPage,
+    InteresSimpleTasaPage,
+    InteresSimpleTiempoPage,
   ],
   imports: [
     NgbModule.forRoot(),
@@ -101,6 +110,11 @@ import { ChartsModule } from 'ng2-charts';
         { component: SistemaAlemanPage, name: 'SistemaAleman', segment: 'menu/sistemas/aleman' },
 
         { component: InteresSimpleMenuPage, name: 'InteresSimpleMenu', segment: 'menu/interes-simple' },
+        { component: InteresSimpleMontoPage, name: 'InteresSimpleMonto', segment: 'menu/interes-simple/monto' },
+        { component: InteresSimpleCapitalPage, name: 'InteresSimpleCapital', segment: 'menu/interes-simple/capital' },
+        { component: InteresSimpleTasaPage, name: 'InteresSimpleTasa', segment: 'menu/interes-simple/tasa' },
+        { component: InteresSimpleTiempoPage, name: 'InteresSimpleTiempo', segment: 'menu/interes-simple/tiempo' },
+
         { component: InteresCompuestoMenuPage, name: 'InteresCompuestoMenu', segment: 'menu/interes-compuesto' },
         { component: InteresCompuestoMontoPage, name: 'InteresCompuestoMongto', segment: 'menu/interes-compuesto/monto' },
         { component: InteresCompuestoCapitalPage, name: 'InteresCompuestoCapital', segment: 'menu/interes-compuesto/capital' },
@@ -137,6 +151,10 @@ import { ChartsModule } from 'ng2-charts';
     InteresCompuestoCapitalPage,
     InteresCompuestoTasaPage,
     InteresCompuestoTiempoPage,
+    InteresSimpleMontoPage,
+    InteresSimpleCapitalPage,
+    InteresSimpleTasaPage,
+    InteresSimpleTiempoPage,
   ],
   providers: [
     StatusBar,
