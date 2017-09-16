@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { InteresCompuestoMontoPage } from './components/monto/interes-compuesto-monto.ts';
 import { InteresCompuestoTasaPage } from './components/tasa/interes-compuesto-tasa.ts';
 import { InteresCompuestoCapitalPage } from './components/capital/interes-compuesto-capital.ts';
+import { InteresCompuestoTiempoPage } from './components/tiempo/interes-compuesto-tiempo.ts';
 
 @Component({
   selector: 'interes-compuesto-menu',
@@ -11,10 +12,9 @@ import { InteresCompuestoCapitalPage } from './components/capital/interes-compue
 
 export class InteresCompuestoMenuPage {
   public pages = [{
-    name: 'Monto',
-    component: InteresCompuestoMontoPage,
-    
-  },
+      name: 'Monto',
+      component: InteresCompuestoMontoPage,
+    },
     {
       name: 'Tasa',
       component: InteresCompuestoTasaPage,
@@ -22,6 +22,10 @@ export class InteresCompuestoMenuPage {
     {
       name: 'Capital',
       component: InteresCompuestoCapitalPage,
+    },
+    {
+      name: 'Tiempo',
+      component: InteresCompuestoTiempoPage,
     }
   ];
 
