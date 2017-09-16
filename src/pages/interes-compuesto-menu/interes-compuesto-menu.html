@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Interes Compuesto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-list inset>
+  <button ion-item *ngFor="let page of pages" (click)="go(page.component)">
+    {{ page.name }}
+  </button>
+</ion-list>

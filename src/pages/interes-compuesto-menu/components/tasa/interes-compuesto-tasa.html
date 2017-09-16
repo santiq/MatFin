@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Interes Compuesto: Tasa</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Monto</ion-label>
+      <ion-input name="monto" [(ngModel)]="Monto" type="number" id="monto" placeholder="monto"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Tiempo</ion-label>
+      <ion-input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label >Frecuencia Capitalizacion</ion-label>
+      <ion-input name="frecuenciaCapitalizacion" [(ngModel)]="FrecuenciaCapitalizacion" type="number" id="frecuenciaCapitalizacion" placeholder="Frecuencia Capitalizacion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Capital</ion-label>
+      <ion-input name="Capital" [(ngModel)]="Capital" type="number" id="Capital" placeholder="Capital">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button full (click)="doCalculation(Capital, Monto, Tiempo, FrecuenciaCapitalizacion)"> Calcular </button>
+    </ion-item>
+    <ion-item>
+      <ion-label> <b> Tasa: {{ Tasa }} </b></ion-label>
+    </ion-item>
+    <!-- <ion-item>
+      <label class=""> <b> Intereses: $ {{ Monto - Capital | number: '1.1' }} </b></label>
+    </ion-item> -->
+  </ion-list>
+</ion-content>
