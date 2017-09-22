@@ -58,10 +58,11 @@ export class DTEPageCap {
     this.doCalculation();
   }
 
-  public cambiarPeriodicidad(value){
-    this.periodicidad = value
-    // this.tasaEfectivaAnual = Math.pow(1 + this.tasaPeriodica, this.periodicidad) - 1 ;
-  }
+  // public cambiarPeriodicidad(value){
+  //   console.log(value);
+  //   this.periodicidad = value
+  //   // this.tasaEfectivaAnual = Math.pow(1 + this.tasaPeriodica, this.periodicidad) - 1 ;
+  // }
 
   public doCalculation(): void {
     const DeterminadorDeTasaEfectiva = new DTE();
