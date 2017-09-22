@@ -4,45 +4,43 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="container">
-    <div class="row">
-      <form>
-        <h1>Flujo de fondos</h1>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+         Flujo de fondos
+      </ion-label>
+    </ion-item>
 
-        <div *ngFor="let flujo of flujosFondo; let in = index">
-          {{ in }} -
-          <input type="number" name="flujo-{{in}}" [(ngModel)]="flujo.value">
-        </div>
+    <ion-item *ngFor="let flujo of flujosFondo; let in = index">
+      <ion-label> 
+         {{ in }} -
+      </ion-label>
+      <ion-input type="number" name="flujo-{{in}}" [(ngModel)]="flujo.value">
+      </ion-input>
+    </ion-item>
 
-        <div>
-          <button type="button" name="button" (click)="agregarFlujo()"> + </button>
-        </div>
-
-        <div class="col-md-4"> 
-            R - Tasa de rendimiento
-            <b>{{ r }} </b>
-        </div>
-
-        <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
-
-        <div class="col-xs-12">
-          <h2>Convergencia - Newton Raphson </h2>
-          <div style="display: block;">
-          <canvas baseChart [datasets]="Convergencia" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
-          </canvas>
-          </div>
-        </div>
-
-        <div class="col-xs-12">
-          <h2>Tasa Iterada </h2>
-          <div style="display: block;">
-          <canvas baseChart [datasets]="TasaIterada" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
-          </canvas>
-          </div>
-        </div>
+    <button ion-button type="button" name="button" (click)="agregarFlujo()"> + </button>
 
 
-      </form>
-    </div>
-  </div>
+    <ion-item>
+      <ion-label stacked> R - Tasa de rendimiento </ion-label>
+      <ion-label> <b>{{ r }} </b> </ion-label>
+    </ion-item>
+
+    <button ion-button full type="button" name="button" (click)="doCalculation()"> Calcular </button>
+
+    <ion-item>
+      <ion-label>  Convergencia - Newton Raphson </ion-label>
+    </ion-item>
+
+      <canvas baseChart [datasets]="Convergencia" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+      </canvas>
+
+    <ion-item>
+      <ion-label>Tasa Iterada</ion-label>
+    </ion-item>
+    <canvas baseChart [datasets]="TasaIterada" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+    </canvas>
+
+  </ion-list>
 </ion-content>
