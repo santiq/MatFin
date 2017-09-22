@@ -4,81 +4,98 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="container">
-    <div class="row">
-      <form>
-        <div class="input-group fluid">
-          <label for="deuda">Deuda</label>
-          <input name="deuda" (ngModelChange)="params.deuda = convertToNumber($event)" [(ngModel)]="params.deuda" type="number" id="deuda" placeholder="deuda">
-          <br/>
-          <label for="cuota">Cuota</label>
-          <input name="cuota" (ngModelChange)="params.cuota = convertToNumber($event)" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota">
-          <select (change)="cambiarPeriodicidad($event.target.value)">
-            <option *ngFor="let p of periodicidades" value={{p.value}}>
-              {{p.name}}
-            </option>
-          </select>
-        </div>
-        <div class="input-group fluid">
-          <label for="tiempo">Tiempo: </label>
-          <input (ngModelChange)="params.tiempo = convertToNumber($event)" name="tiempo" [(ngModel)]="params.tiempo" type="number" id="tiempo" placeholder="tiempo">
-          <label [ngSwitch]="periodicidad">
-            <i *ngSwitchCase="1">Años</i>
-            <i *ngSwitchCase="2">Semestres</i>
-            <i *ngSwitchCase="3">Cuatrimestres</i>
-            <i *ngSwitchCase="4">Trimestres</i>
-            <i *ngSwitchCase="6">Bimestres</i>
-            <i *ngSwitchCase="12">Meses</i>
-          </label>
-        </div>
-        <div class="input-group fluid">
-          <label for="momento">Momento de valuacion</label>
-          <input (ngModelChange)="params.Z = convertToNumber($event)" name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
-          <i for="momento" *ngIf="params.Z < 0">Renta Diferida </i>
-          <i for="momento" *ngIf="params.Z > 0">Renta Anticipada </i>
-          <i for="momento" *ngIf="params.Z === 0">Renta Inmediata </i>
-        </div>
-        <div class="input-group">
-            <input type="checkbox" id="check1" tabindex="0" [checked]="params.cuotaAdelantada" (change)="params.cuotaAdelantada = !params.cuotaAdelantada">
-            <label for="check1">Cuota Adelantada</label>
-        </div>
-        <div class="input-group">
-          <label for="iteraciones">Iteraciones</label>
-          <input name="iteraciones"  (ngModelChange)="iteraciones = convertToNumber($event)" [(ngModel)]="iteraciones" type="number" id="iteraciones" placeholder="iteraciones">
-        </div>
-        <div class="button-group">
-          <button type="button" name="button" (click)="doCalculation()"> Calcular </button>
-        </div>
+  <ion-list>
 
-        <div class="col-xs-12">
-          <h2>Convergencia </h2>
-          <div style="display: block;">
-            <canvas baseChart [datasets]="resultados" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
-        </canvas>
-          </div>
-        </div>
+    <ion-item>
+      <ion-label for="deuda">Deuda</ion-label>
+      <ion-input name="deuda" (ngModelChange)="params.deuda = convertToNumber($event)" [(ngModel)]="params.deuda" type="number" id="deuda"
+        placeholder="deuda">
+      </ion-input>
+    </ion-item>
 
-        <div class="row">
-          <div class="col-xs-12">
-            <label class=""> <b> Aproximacion de baily: {{ aproximacionBaily | number: '1.2-10' }} </b></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="">
-            <label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="">
-            <label class=""> <b> Tasa Efectiva Anual: {{ tasaEfectivaAnual | percent: '1.2-4' }} </b></label>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+    <ion-item>
+      <ion-label for="cuota">Cuota</ion-label>
+      <ion-input (ngModelChange)="params.cuota = convertToNumber($event)" name="cuota" [(ngModel)]="params.cuota" type="number"
+        id="cuota" placeholder="cuota"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Periodicidad</ion-label>
+      <ion-select [(ngModel)]="periodicidad">
+        <ion-label>Periodicidad</ion-label>
+        <ion-option *ngFor="let p of periodicidades" [value]="p.value">
+          {{p.name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+
+  <ion-item>
+    <ion-label for="tiempo">Tiempo: </ion-label>
+    <ion-input name="tiempo" (ngModelChange)="params.tiempo = convertToNumber($event)" [(ngModel)]="params.tiempo" type="number"
+      id="tiempo" placeholder="tiempo"></ion-input>
+    <ion-label [ngSwitch]="periodicidad">
+      <i *ngSwitchCase="1">Años</i>
+      <i *ngSwitchCase="2">Semestres</i>
+      <i *ngSwitchCase="3">Cuatrimestres</i>
+      <i *ngSwitchCase="4">Trimestres</i>
+      <i *ngSwitchCase="6">Bimestres</i>
+      <i *ngSwitchCase="12">Meses</i>
+    </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label for="momento">Momento de valuacion</ion-label>
+      <ion-input (ngModelChange)="params.Z = convertToNumber($event)" name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
+      </ion-input>
+      <i for="momento" *ngIf="params.Z < 0">Renta Diferida </i>
+      <i for="momento" *ngIf="params.Z > 0">Renta Anticipada </i>
+      <i for="momento" *ngIf="params.Z === 0">Renta Inmediata </i>
+    </ion-item>
+
+    <ion-item>
+
+
+      <ion-label for="check1">Cuota Adelantada</ion-label>
+      <ion-checkbox [(ngModel)]="params.cuotaAdelantada" (change)="params.cuotaAdelantada = !params.cuotaAdelantada"></ion-checkbox>
+        
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label for="iteraciones">Iteraciones</ion-label>
+      <ion-input name="iteraciones" (ngModelChange)="iteraciones = convertToNumber($event)" [(ngModel)]="iteraciones" type="number"
+        id="iteraciones" placeholder="iteraciones"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <button ion-button full type="button" name="button" (click)="doCalculation()"> Calcular </button>
+    </ion-item>
+
+    <ion-item center>
+      <ion-label> Convergencia </ion-label>
+    </ion-item>
+
+    <canvas baseChart [datasets]="resultados" [labels]="lineChartLabels" [legend]="false" [chartType]="'line'">
+    </canvas>
+
+    <ion-item>
+      <ion-label class=""> <b> Aproximacion de baily: {{ aproximacionBaily | number: '1.2-10' }} </b></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class=""> <b> Tasa Efectiva Anual: {{ tasaEfectivaAnual | percent: '1.2-4' }} </b></ion-label>
+    </ion-item>
+
+    </ion-list>
 </ion-content>
+
