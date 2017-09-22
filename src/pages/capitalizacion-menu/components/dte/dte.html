@@ -17,11 +17,12 @@
       <ion-label for="cuota">Cuota</ion-label>
       <ion-input (ngModelChange)="params.cuota = convertToNumber($event)" name="cuota" [(ngModel)]="params.cuota" type="number" id="cuota" placeholder="cuota"></ion-input>
     </ion-item>
+
     <ion-item>        
       <ion-label>Periodicidad</ion-label>
-      <ion-select (change)="cambiarPeriodicidad($event.target.value)">
+      <ion-select [(ngModel)]="periodicidad">
         <ion-label>Periodicidad</ion-label>
-        <ion-option *ngFor="let p of periodicidades" value={{p.value}}>
+        <ion-option *ngFor="let p of periodicidades" [value]="p.value">
           {{p.name}}
         </ion-option>
       </ion-select>
@@ -64,19 +65,19 @@
     </canvas>
 
     <ion-item>
-        <ion-label class=""> <b> Aproximacion de baily: {{ aproximacionBaily | number: '1.2-10' }} </b></ion-label>
+      <ion-label class=""> <b> Aproximacion de baily: {{ aproximacionBaily | number: '1.2-10' }} </b></ion-label>
     </ion-item>
 
     <ion-item>
-        <ion-label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></ion-label>
+      <ion-label class=""> <b> Tasa Periodica: {{ tasaPeriodica | number: '1.2-10' }} </b></ion-label>
     </ion-item>
 
     <ion-item>
-        <ion-label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></ion-label>
+      <ion-label class=""> <b> Error Relativo: {{ errorRelativo | number: '1.2-10' }} </b></ion-label>
     </ion-item>
 
     <ion-item>
-        <ion-label class=""> <b> Tasa Efectiva Anual: {{ tasaEfectivaAnual | percent: '1.2-4' }} </b></ion-label>
+      <ion-label class=""> <b> Tasa Efectiva Anual: {{ tasaEfectivaAnual | percent: '1.2-4' }} </b></ion-label>
     </ion-item>
 
   </ion-list>
