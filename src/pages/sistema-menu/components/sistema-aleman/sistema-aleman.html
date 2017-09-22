@@ -9,17 +9,17 @@
       <ion-item-group>
 
     <ion-item>
-      <ion-label fixed>Deuda</ion-label>
+      <ion-label stacked>Deuda</ion-label>
       <ion-input type="number" (ngModelChange)="deuda = convertToNumber($event)" [(ngModel)]="deuda" name="deuda"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label fixed>Tasa de Interes</ion-label>
+      <ion-label stacked>Tasa de Interes</ion-label>
       <ion-input type="number" (ngModelChange)="tasaInteres = convertToNumber($event)" [(ngModel)]="tasaInteres" name="tasaInteres"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label fixed>Tiempo</ion-label>
+      <ion-label stacked>Tiempo</ion-label>
       <ion-input type="number" (ngModelChange)="tiempo = convertToNumber($event)" [(ngModel)]="tiempo" name="tiempo"></ion-input>
     </ion-item>
     <ion-item padding>
@@ -50,7 +50,7 @@
     </ion-list-header>
 
     <ion-item>
-      <ion-label fixed>Porcentaje</ion-label>
+      <ion-label stacked>Porcentaje</ion-label>
       <ion-input type="number" (ngModelChange)="porcentajeDeuda = convertToNumber($event)" [(ngModel)]="porcentajeDeuda" name="porcentajeDeuda"></ion-input>
     </ion-item>
 
@@ -70,7 +70,7 @@
     </ion-list-header>
 
     <ion-item>
-      <ion-label fixed>Periodo</ion-label>
+      <ion-label stacked>Periodo</ion-label>
       <ion-input type="number" (ngModelChange)="periodoAnalisis = convertToNumber($event)" [(ngModel)]="periodoAnalisis" name="periodoAnalisis"></ion-input>
     </ion-item>
 
