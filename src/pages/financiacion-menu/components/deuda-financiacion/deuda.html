@@ -18,7 +18,7 @@
       <ion-input name="tiempo" [(ngModel)]="Tiempo" type="number" id="tiempo" placeholder="tiempo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Cuota Adelantada</ion-label>
+      <ion-label fixed>Cuota Adelantada</ion-label>
       <ion-checkbox [(ngModel)]="CuotaAdelantada"></ion-checkbox>
     </ion-item>
     <ion-item>
@@ -31,6 +31,8 @@
     <ion-item>
         <button ion-button full (click)="doCalculation(Cuota, Tasa, Tiempo, MomentoValuacion, CuotaAdelantada)"> Calcular </button>
     </ion-item>
-    <label class=""> <b> Deuda: $ {{ Deuda | number: '1.1' }} </b></label>
+    <ion-item>
+      <ion-label class=""> <b> Deuda: $ {{ Deuda | number: '1.1' }} </b></ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
