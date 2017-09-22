@@ -4,33 +4,33 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="container">
-    <div class="row">
-      <form>
-        <div class="row"> 
-          <h1>Flujo de fondos</h1>
-          <div *ngFor="let flujo of flujosFondo; let in = index" class="row">
-            {{ in }} -
-            <input type="number" name="flujo-{{in}}" [(ngModel)]="flujo.value">
-          </div>
-        </div>
+    <ion-item>
+      Flujo de fondos
+    </ion-item>
 
-        <div class="row">
-          <button ion-button block (click)="agregarFlujo()">+</button>
-        </div>
+    <ion-item *ngFor="let flujo of flujosFondo; let in = index"> 
+      <ion-label>
+        {{ in }} -
+      </ion-label>
+      <ion-input type="number" name="flujo-{{in}}" [(ngModel)]="flujo.value">
+      </ion-input>
+    </ion-item>
 
-        <div class="row"> 
-            R - Tasa de rendimiento requerida
-            <input type="number" (ngModelChange)="r = convertToNumber($event)" name="tasa-requerida-r" [(ngModel)]="r">
-        </div>
+    <button ion-button block (click)="agregarFlujo()">+</button>
 
-        <button ion-button block  (click)="doCalculation()">Calcular</button>
+    <ion-item> 
+      <ion-label stacked> R - Tasa de rendimiento requerida </ion-label>
+      <ion-input type="number" (ngModelChange)="r = convertToNumber($event)" name="tasa-requerida-r" [(ngModel)]="r">
+      </ion-input>
+    </ion-item>
 
-        <div class="row">
-          <div class="row">VAN: {{ van }}</div>
-          <div class="row"> {{ van >= 0 ? "Inversion Aceptada" : "Inversion Rechazada" }} </div>
-        </div>
-      </form>
-    </div>
-  </div>
+    <button ion-button block  (click)="doCalculation()">Calcular</button>
+
+    <ion-item> 
+      <ion-label> VAN: {{ van }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>  {{ van >= 0 ? "Inversion Aceptada" : "Inversion Rechazada" }} </ion-label>
+    </ion-item>
 </ion-content>
