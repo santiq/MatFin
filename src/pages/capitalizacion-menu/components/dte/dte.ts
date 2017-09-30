@@ -8,6 +8,9 @@ import { DTE, IDTEParams } from '../../../../providers/determinacion-tasa-efecti
 
 export class DTEPageCap {
   public convertToNumber(event): number { return +event; }
+
+  public CuotaAdelantada: boolean = false;
+
   public aproximacionBaily: number = 0;
   public iteraciones: number = 50;
   public periodicidad: number = 1;
@@ -66,7 +69,7 @@ export class DTEPageCap {
 
   public doCalculation(): void {
     const DeterminadorDeTasaEfectiva = new DTE();
-    const parameters = Object.assign({}, this.params, { Z: this.params.tiempo, cuotaAdelantada: false  })
+    const parameters = Object.assign({}, this.params, { Z: this.params.tiempo, cuotaAdelantada: this.CuotaAdelantada  })
 
     const TasaEfectiva = DeterminadorDeTasaEfectiva.calculate(this.iteraciones, parameters);
     this.resultados = TasaEfectiva.resultados;
@@ -80,7 +83,7 @@ export class DTEPageCap {
     }
 
     this.aproximacionBaily = DeterminadorDeTasaEfectiva.getH(
-      this.params.cuota, this.params.tiempo, this.params.deuda, this.params.tiempo, false
+      this.params.cuota, this.params.tiempo, this.params.deuda, this.params.tiempo, this.CuotaAdelantada
     )
   }
 }
