@@ -3,11 +3,8 @@
     <ion-title>Sistema Aleman </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
 <ion-content>
-  <ion-list>
-      <ion-item-group>
-
+  <ion-item-group>
     <ion-item>
       <ion-label stacked>Deuda</ion-label>
       <ion-input type="number" (ngModelChange)="deuda = convertToNumber($event)" [(ngModel)]="deuda" name="deuda"></ion-input>
@@ -44,10 +41,9 @@
   </ion-item-group>
 
   <ion-item-group>
-
-    <ion-list-header>
+    <ion-item-divider color="light" text-center>
       Tiempo para cancelar % de la deuda
-    </ion-list-header>
+    </ion-item-divider>
 
     <ion-item>
       <ion-label stacked>Porcentaje</ion-label>
@@ -64,10 +60,9 @@
   </ion-item-group>
 
   <ion-item-group>
-
-    <ion-list-header>
+    <ion-item-divider color="light" text-center>
       Periodo de analisis
-    </ion-list-header>
+    </ion-item-divider>
 
     <ion-item>
       <ion-label stacked>Periodo</ion-label>
@@ -96,10 +91,5 @@
     <ion-item>
       <ion-label>Intereses pagados: $ {{ resultado.periodoAnalisis.interesPagados | number:'1.1-2' }}</ion-label>
     </ion-item>
-
   </ion-item-group>
-
-
-  </ion-list>
-
 </ion-content>

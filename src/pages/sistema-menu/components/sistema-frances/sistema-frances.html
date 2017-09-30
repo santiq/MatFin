@@ -3,104 +3,91 @@
     <ion-title>Sistema Frances </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
 <ion-content>
-  <ion-list>
-      <ion-item-group>
-
-    <ion-item>
-      <ion-label stacked>Deuda</ion-label>
-      <ion-input type="number" (ngModelChange)="deuda = convertToNumber($event)" [(ngModel)]="deuda" name="deuda"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Tasa de Interes</ion-label>
-      <ion-input type="number" (ngModelChange)="tasaInteres = convertToNumber($event)" [(ngModel)]="tasaInteres" name="tasaInteres"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Tiempo</ion-label>
-      <ion-input type="number" (ngModelChange)="tiempo = convertToNumber($event)" [(ngModel)]="tiempo" name="tiempo"></ion-input>
-    </ion-item>
-    <ion-item padding>
-      <button ion-button color="primary" (click)="doCalculation()" block > Calcular </button>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Cuota: $ {{ resultado.cuota| number:'1.1-2' }} </ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Amortizacion Primer Periodo: $  {{ resultado.amortizacionPrimerPeriodo| number:'1.1-2' }}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Interes Primer Periodo: $ {{ resultado.interesPrimerPeriodo | number:'1.1-2' }}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Tasa Amortizacion: {{ resultado.tasaAmortizacion | percent }}</ion-label>
-    </ion-item>
-  </ion-item-group>
-
   <ion-item-group>
+      <ion-item>
+        <ion-label stacked>Deuda</ion-label>
+        <ion-input type="number" (ngModelChange)="deuda = convertToNumber($event)" [(ngModel)]="deuda" name="deuda"></ion-input>
+      </ion-item>
 
-    <ion-list-header>
-      Tiempo para cancelar % de la deuda
-    </ion-list-header>
+      <ion-item>
+        <ion-label stacked>Tasa de Interes</ion-label>
+        <ion-input type="number" (ngModelChange)="tasaInteres = convertToNumber($event)" [(ngModel)]="tasaInteres" name="tasaInteres"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label stacked>Porcentaje</ion-label>
-      <ion-input type="number" (ngModelChange)="porcentajeDeuda = convertToNumber($event)" [(ngModel)]="porcentajeDeuda" name="porcentajeDeuda"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label stacked>Tiempo</ion-label>
+        <ion-input type="number" (ngModelChange)="tiempo = convertToNumber($event)" [(ngModel)]="tiempo" name="tiempo"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label *ngIf="porcentajeDeuda == 50; then medio else necesario"></ion-label>
+      <ion-item padding>
+        <button ion-button color="primary" (click)="doCalculation()" block > Calcular </button>
+      </ion-item>
 
-      <ng-template #medio>Periodo Medio de Reembolso: {{ resultado.tiempoNecesarioCancelarDeuda | number:'1.1-2' }}</ng-template>
-      <ng-template #necesario>Tiempo Necesario: {{ resultado.tiempoNecesarioCancelarDeuda | number:'1.1-2' }}</ng-template>
+      <ion-item>
+        <ion-label>Cuota: $ {{ resultado.cuota| number:'1.1-2' }} </ion-label>
+      </ion-item>
 
-    </ion-item>
+      <ion-item>
+        <ion-label>Amortizacion Primer Periodo: $  {{ resultado.amortizacionPrimerPeriodo| number:'1.1-2' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Interes Primer Periodo: $ {{ resultado.interesPrimerPeriodo | number:'1.1-2' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tasa Amortizacion: {{ resultado.tasaAmortizacion | percent }}</ion-label>
+      </ion-item>
+    </ion-item-group>
+    <br/>
+    <ion-item-group>
+      <ion-item-divider color="light" text-center>Tiempo para cancelar % de la deuda</ion-item-divider>
+
+      <ion-item>
+        <ion-label stacked>Porcentaje</ion-label>
+        <ion-input type="number" (ngModelChange)="porcentajeDeuda = convertToNumber($event)" [(ngModel)]="porcentajeDeuda" name="porcentajeDeuda"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label *ngIf="porcentajeDeuda == 50; then medio else necesario"></ion-label>
+
+        <ng-template #medio>Periodo Medio de Reembolso: {{ resultado.tiempoNecesarioCancelarDeuda | number:'1.1-2' }}</ng-template>
+        <ng-template #necesario>Tiempo Necesario: {{ resultado.tiempoNecesarioCancelarDeuda | number:'1.1-2' }}</ng-template>
+
+      </ion-item>
+    </ion-item-group>
+    <br/>
+    <ion-item-group>
+      <ion-item-divider color="light" text-center> Periodo de analisis </ion-item-divider>
+
+      <ion-item>
+        <ion-label stacked>Periodo</ion-label>
+        <ion-input type="number" (ngModelChange)="periodoAnalisis = convertToNumber($event)" [(ngModel)]="periodoAnalisis" name="periodoAnalisis"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Amortizacion del periodo: $ {{ resultado.periodoAnalisis.amortizacion | number:'1.1-2' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Interes del periodo: $ {{ resultado.periodoAnalisis.interes | number:'1.1-2' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Total Amortizado: $ {{ resultado.periodoAnalisis.totalAmortizado | number:'1.1-2' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Total Amortizado (%):  {{ resultado.periodoAnalisis.porcentajeTotalAmortizado | percent:'1.1-2' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Deuda Subsistente: $ {{ resultado.periodoAnalisis.deudaSubsistente | number:'1.1-2' }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Intereses pagados: $ {{ resultado.periodoAnalisis.interesPagados | number:'1.1-2' }}</ion-label>
+      </ion-item>
   </ion-item-group>
-
-  <ion-item-group>
-
-    <ion-list-header>
-      Periodo de analisis
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label stacked>Periodo</ion-label>
-      <ion-input type="number" (ngModelChange)="periodoAnalisis = convertToNumber($event)" [(ngModel)]="periodoAnalisis" name="periodoAnalisis"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Amortizacion del periodo: $ {{ resultado.periodoAnalisis.amortizacion | number:'1.1-2' }}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Interes del periodo: $ {{ resultado.periodoAnalisis.interes | number:'1.1-2' }}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Total Amortizado: $ {{ resultado.periodoAnalisis.totalAmortizado | number:'1.1-2' }}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Total Amortizado (%):  {{ resultado.periodoAnalisis.porcentajeTotalAmortizado | percent:'1.1-2' }}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Deuda Subsistente: $ {{ resultado.periodoAnalisis.deudaSubsistente | number:'1.1-2' }}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Intereses pagados: $ {{ resultado.periodoAnalisis.interesPagados | number:'1.1-2' }}</ion-label>
-    </ion-item>
-
-  </ion-item-group>
-
-
-  </ion-list>
-
 </ion-content>

@@ -1,7 +1,12 @@
 <ion-navbar>
   <ion-title>Menu</ion-title>
 </ion-navbar>
-<ion-content class="card-background-page" >
+<ion-content class="card-background-page">
+  <ion-card (click)="go('interes-simple')">
+    <img src="assets/img/interes_simple.jpg" />
+    <div class="card-title">Interes Simple</div>
+    <div class="card-subtitle">Interes Simple</div>
+  </ion-card>
 
   <ion-card (click)="go('interes-compuesto')">
     <img src="assets/img/interes_compuesto.jpg" />
@@ -9,10 +14,11 @@
     <div class="card-subtitle">Interes Compuesto</div>
   </ion-card>
 
-  <ion-card (click)="go('interes-simple')">
-    <img src="assets/img/interes_simple.jpg" />
-    <div class="card-title">Interes Simple</div>
-    <div class="card-subtitle">Interes Simple</div>
+  <!-- <ion-card (click)="go('conversion-tasas')"> -->
+  <ion-card disabled>
+    <img src="assets/img/conversion_de_tasas.jpg" />
+    <div class="card-title">Conversion de Tasas</div>
+    <div class="card-subtitle">Conversion de Tasas</div>
   </ion-card>
 
   <ion-card (click)="go('capitalizacion-menu')">
