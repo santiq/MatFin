@@ -38,7 +38,7 @@ export class DTEPageFin {
 
   public tasaEfectivaAnual: number = 0;
   public params: IDTEParams = {
-    tiempo: 10, deuda: 8.7130345602, cuota: 1, Z: 3, cuotaAdelantada: false
+    tiempo: 10, deuda: 8713.0345602, cuota: 1000, Z: 3, cuotaAdelantada: false
   }
 
   public tasaPeriodica : number = 0;
