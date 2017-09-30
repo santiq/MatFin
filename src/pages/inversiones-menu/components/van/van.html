@@ -20,11 +20,11 @@
 
     <ion-item> 
       <ion-label stacked> R - Tasa de rendimiento requerida </ion-label>
-      <ion-input type="number" (ngModelChange)="r = convertToNumber($event)" name="tasa-requerida-r" [(ngModel)]="r">
+      <ion-input type="number" name="tasa-requerida-r" [(ngModel)]="r">
       </ion-input>
     </ion-item>
 
-    <button ion-button block  (click)="doCalculation()">Calcular</button>
+    <button ion-button block (click)="doCalculation()">Calcular</button>
 
     <ion-item> 
       <ion-label> VAN: {{ van }}</ion-label>

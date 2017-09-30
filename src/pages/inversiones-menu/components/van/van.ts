@@ -20,10 +20,12 @@ export class VanPage {
 
   public doCalculation(): void {
     this.van = this.flujosFondo.reduce((prev, curr, index, array) => {
+      let _prev = parseFloat(prev);
+      let _currValue = parseFloat(curr.value);
       if(index === 0) {
-        return curr.value;
+        return _currValue;
       } else {
-        return prev + (curr.value) / Math.pow((1+this.r),index);
+        return _prev + (_currValue) / Math.pow((1+this.r),index);
       }
     }, 0)
   }
