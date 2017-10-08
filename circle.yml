@@ -13,12 +13,13 @@ machine:
 dependencies:
   pre:
     - npm install -g ionic cordova yarn
-    - echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-25
-    - echo y | android update sdk --no-ui --all --filter build-tools-25.0.0
+    - if [ ! -e /usr/local/android-sdk-linux/build-tools/26.0.2 ]; then echo y | android update sdk --all --no-ui --filter "build-tools-26.0.1"; fi;
+    - if [ ! -e /usr/local/android-sdk-linux/platforms/android-26 ]; then echo y | android update sdk --all --no-ui --filter "tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-26"; fi;
 
   cache_directories:
-    - /usr/local/android-sdk-linux/tools
-    - /usr/local/android-sdk-linux/build-tools/24.0.1
+    - /usr/local/android-sdk-linux/build-tools/26.0.1
+    - /usr/local/android-sdk-linux/platforms/android-26
+    - /usr/local/android-sdk-linux/extras/android/m2repository
 
   post:
     - mkdir www
