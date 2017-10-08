@@ -34,40 +34,35 @@
     <ion-label for="tiempo" stacked>Tiempo: </ion-label>
     <ion-input name="tiempo" (ngModelChange)="params.tiempo = convertToNumber($event)" [(ngModel)]="params.tiempo" type="number"
       id="tiempo" placeholder="tiempo"></ion-input>
-    <ion-label [ngSwitch]="periodicidad">
-      <i *ngSwitchCase="1">Años</i>
-      <i *ngSwitchCase="2">Semestres</i>
-      <i *ngSwitchCase="3">Cuatrimestres</i>
-      <i *ngSwitchCase="4">Trimestres</i>
-      <i *ngSwitchCase="6">Bimestres</i>
-      <i *ngSwitchCase="12">Meses</i>
+    <ion-label [ngSwitch]="periodicidad" stacked>
+      <ion-label *ngSwitchCase="1" stacked>Años</ion-label>
+      <ion-label *ngSwitchCase="2" stacked>Semestres</ion-label>
+      <ion-label *ngSwitchCase="3" stacked>Cuatrimestres</ion-label>
+      <ion-label *ngSwitchCase="4" stacked>Trimestres</ion-label>
+      <ion-label *ngSwitchCase="6" stacked>Bimestres</ion-label>
+      <ion-label *ngSwitchCase="12" stacked>Meses</ion-label>
     </ion-label>
     </ion-item>
 
     <ion-item>
       <ion-label for="momento" stacked>Momento de valuacion</ion-label>
-      <ion-input (ngModelChange)="params.Z = convertToNumber($event)" name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="momento">
+      <ion-input (ngModelChange)="params.Z = convertToNumber($event)" name="momento" [(ngModel)]="params.Z" type="number" id="momento" placeholder="Momento Valuacion">
       </ion-input>
-      <i for="momento" *ngIf="params.Z < 0">Renta Diferida </i>
-      <i for="momento" *ngIf="params.Z > 0">Renta Anticipada </i>
-      <i for="momento" *ngIf="params.Z === 0">Renta Inmediata </i>
+      <ion-label for="momento" *ngIf="params.Z < 0">Renta Diferida </ion-label>
+      <ion-label for="momento" *ngIf="params.Z > 0">Renta Anticipada </ion-label>
+      <ion-label for="momento" *ngIf="params.Z == 0">Renta Inmediata </ion-label>
     </ion-item>
 
     <ion-item>
-
-
       <ion-label for="check1">Cuota Adelantada</ion-label>
       <ion-checkbox [(ngModel)]="params.cuotaAdelantada" (change)="params.cuotaAdelantada = !params.cuotaAdelantada"></ion-checkbox>
-        
     </ion-item>
-
 
     <ion-item>
       <ion-label for="iteraciones">Iteraciones</ion-label>
       <ion-input name="iteraciones" (ngModelChange)="iteraciones = convertToNumber($event)" [(ngModel)]="iteraciones" type="number"
         id="iteraciones" placeholder="iteraciones"></ion-input>
     </ion-item>
-
 
     <ion-item>
       <button ion-button full type="button" name="button" (click)="doCalculation()"> Calcular </button>
