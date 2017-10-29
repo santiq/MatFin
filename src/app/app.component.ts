@@ -22,7 +22,7 @@ export class MyApp {
         .then(() => {
           console.log('Google analytics is ready now');
           // Tracker is ready
-          this.ga.trackView('Platform Ready');
+          this.ga.trackEvent('Aplicacion', 'CargaInicial');
           // You can now track pages or set additional information such as AppVersion or UserId
         })
         .catch(e => console.log('Error starting GoogleAnalytics', e));
