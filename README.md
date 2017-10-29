@@ -1,3 +1,14 @@
+# MatFin
+
+*MatFin* es una Calculadora Financiera pensada para ser utilizada en el desarrollo de clases de Matemática Financiera en estudios de grado.
+
+Por la sencillez de su interfaz resulta de fácil aplicación, contribuyendo en la simplificación de cálculos y facilitando la toma de decisiones financieras, tanto en la vida personal como profesional de los usuarios. Se presenta como un software libre, de aplicación educativa, descarga gratuita y código abierto, apto para su uso no comercial y libre de publicidad. La idea de sus creadores fue contribuir en la propagación del conocimiento de las matemáticas del valor tiempo del dinero, depositando en manos de los estudiantes-usuarios una herramienta más tendiente a facilitar dicho proceso.
+
+# Imagenes
+
+![MainMenu](https://user-images.githubusercontent.com/7070683/32139959-7e0ebd9a-bc2f-11e7-88ea-6c3b291606ff.png)
+
+
 # Pre requisites
 ```bash
 sudo npm install -g ionic cordova
