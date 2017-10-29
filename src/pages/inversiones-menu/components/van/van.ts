@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
   templateUrl: 'van.html'
@@ -11,7 +12,7 @@ export class VanPage {
   public r: number = 0.1;
   public van: number;
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
     this.doCalculation();
   }
   public agregarFlujo(): void {
@@ -28,5 +29,6 @@ export class VanPage {
         return _prev + (_currValue) / Math.pow((1+this.r),index);
       }
     }, 0)
+    this.ga.trackEvent('Calculo', 'Inversiones:Van');
   }
 }

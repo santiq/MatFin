@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
   templateUrl: 'interes-compuesto-tasa.html'
@@ -13,7 +14,7 @@ export class InteresCompuestoTasaPage {
   public Tiempo: number = 10;
   public Monto: number = 2000;
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
     this.doCalculation(this.Capital, this.Monto, this.Tiempo, this.FrecuenciaCapitalizacion);
   }
 
@@ -25,6 +26,7 @@ export class InteresCompuestoTasaPage {
     let _capital = parseFloat(capital);
     let exp = 1 / (_frecuenciaCapitalizacion * _tiempo);
     this.Tasa = (Math.pow((_monto / _capital), exp) - 1 ) * _frecuenciaCapitalizacion;
+    this.ga.trackEvent('Calculo', 'InteresCompuesto:Tasa');
   }
 
 }

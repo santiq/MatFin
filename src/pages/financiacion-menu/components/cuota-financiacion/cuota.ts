@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
   templateUrl: 'cuota.html'
@@ -15,7 +16,7 @@ export class CuotaPageFin {
 
   public Cuota: number = 0;
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
     this.doCalculation(this.Deuda, this.Tasa, this.Tiempo, this.MomentoValuacion, this.CuotaAdelantada);
   }
 
@@ -27,7 +28,8 @@ export class CuotaPageFin {
 
     let g = _tasa / (1 - Math.pow((1 + _tasa), -_tiempo) )
     let h = 1 / Math.pow((1 + _tasa), this.getExponent(_momentoValuacion, cuotaAdelantada))
-    this.Cuota = _deuda * (g * h) ;
+    this.Cuota = _deuda * (g * h);
+    this.ga.trackEvent('Calculo', 'Financiacion:Cuota');
   }
 
   private getExponent(momentoValuacion, cuotaAdelantada) {
