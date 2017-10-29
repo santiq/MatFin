@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { DTEPageCap } from './components/dte/dte';
 import { CapitalFuturoCAPPage } from './components/capital-futuro/capital-futuro';
 import { TiempoCAPPage } from './components/tiempo/tiempo';
@@ -11,8 +11,11 @@ import { CuotaCAPPage } from './components/cuota/cuota';
 })
 export class CapitalizacionMenuPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
 
+  }
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:Capitalizacion');
   }
   pages = [{
     name: 'Determinacion de la tasa efectiva',

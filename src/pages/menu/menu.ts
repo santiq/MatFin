@@ -17,6 +17,10 @@ export class MenuPage {
 
   }
 
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:Principal');
+  }
+
   go(page: string) {
     switch(page){
       case 'interes-simple': 
