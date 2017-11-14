@@ -5,7 +5,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 @Component({
   templateUrl: 'conversion-tasas-menu.html'
 })
-export class ConsersionTasasMenuPage {
+export class ConversionTasasMenuPage {
 
   constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
 
