@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { ConversionTasasMenuPage } from '../pages/conversion-tasas/conversion-tasas-menu';
+
 import { CapitalizacionMenuPage } from '../pages/capitalizacion-menu/capitalizacion-menu';
 import { DTEPageCap } from '../pages/capitalizacion-menu/components/dte/dte';
 import { CapitalFuturoCAPPage } from '../pages/capitalizacion-menu/components/capital-futuro/capital-futuro';
@@ -53,6 +55,7 @@ import { ChartsModule } from 'ng2-charts';
     MyApp,
     MenuPage,
     CapitalizacionMenuPage,
+    ConversionTasasMenuPage,
     FinanciacionMenuPage,
     DTEPageCap,
     DTEPageFin,
