@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SistemaFrancesPage } from './components/sistema-frances/sistema-frances';
 import { SistemaAlemanPage } from './components/sistema-aleman/sistema-aleman';
 
@@ -9,9 +9,14 @@ import { SistemaAlemanPage } from './components/sistema-aleman/sistema-aleman';
 })
 export class SistemasMenuPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
 
   }
+
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:Sistemas');
+  }
+
   pages = [{
     name: 'Sistema Frances',
     component: SistemaFrancesPage,

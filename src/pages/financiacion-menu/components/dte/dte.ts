@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DTE, IDTEParams } from '../../../../providers/determinacion-tasa-efectiva/index';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 @Component({
   templateUrl: 'dte.html'
 })
@@ -51,7 +51,7 @@ export class DTEPageFin {
 
   public lineChartLabels:Array<any> = ['1','2','3','4','5'];
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
     this.doCalculation();
   }
 
@@ -75,5 +75,6 @@ export class DTEPageFin {
     this.aproximacionBaily = DeterminadorDeTasaEfectiva.getH(
       this.params.cuota, this.params.tiempo, this.params.deuda, this.params.Z, this.params.cuotaAdelantada
     )
+    this.ga.trackEvent('Calculo', 'Financiacion:DTE');
   }
 }

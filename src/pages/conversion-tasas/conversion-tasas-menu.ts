@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
   templateUrl: 'conversion-tasas-menu.html'
 })
-export class ConsersionTasasMenuPage {
+export class ConversionTasasMenuPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
 
+  }
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:Tasas');
   }
   pages = [{
     name: 'TNA',

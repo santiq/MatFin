@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
   templateUrl: 'valuacion-acciones.html'
@@ -11,7 +12,7 @@ export class ValuacionAccionesPage {
   public TasaDividendo: number;
   public PrecioTeorico: number;
   public PETeorico: number;
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
     this.Dividendos = 4.27;
     this.Tasa = 0.36;
     this.TasaDividendo = 0.25;
@@ -27,7 +28,7 @@ export class ValuacionAccionesPage {
     console.log(_dividendo, _tasa, _tasaDividendo)
     this.PrecioTeorico = _dividendo / (_tasa - _tasaDividendo );
     this.PETeorico = this.PrecioTeorico / _dividendo;
-
+    this.ga.trackEvent('Calculo', 'Inversiones:ValuacionAcciones');
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { DTEPageFin } from './components/dte/dte';
 import { CuotaPageFin } from './components/cuota-financiacion/cuota';
 import { TiempoPageFin } from './components/tiempo-financiacion/tiempo';
@@ -11,7 +11,10 @@ import { DeudaPageFin } from './components/deuda-financiacion/deuda';
 })
 export class FinanciacionMenuPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
+  }
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:Financiacion');
   }
   pages = [{
     name: 'Tasa efectiva',

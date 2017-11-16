@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
   templateUrl: 'tir.html'
@@ -19,7 +20,7 @@ export class TirPage {
     {data: [], label: 'Iteraciones'}
   ];
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
 
   }
 
@@ -62,6 +63,7 @@ export class TirPage {
 
     this.TasaIterada = [{ data: results.map(x0 => 1/ x0 - 1), label: 'TIR' }]
     console.log(results)
+    this.ga.trackEvent('Calculo', 'Inversiones:TIR');
   }
 
 
