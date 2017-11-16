@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { SistemaFrances } from '../../../../providers/sistemas-amortizacion/frances';
 
 @Component({
@@ -17,7 +17,7 @@ export class SistemaFrancesPage {
   public resultado:any = {
 
   };
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
     this.doCalculation();
   }
 
@@ -25,5 +25,6 @@ export class SistemaFrancesPage {
     const sistemaFrances = new SistemaFrances();
     this.resultado = sistemaFrances.calcular(this.deuda, this.tasaInteres, this.tiempo, this.porcentajeDeuda, this.periodoAnalisis);
     console.log(this.resultado)
+    this.ga.trackEvent('Calculo', 'SistemaFrances');
   }
 }

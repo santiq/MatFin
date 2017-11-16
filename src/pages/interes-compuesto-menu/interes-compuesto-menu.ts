@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { InteresCompuestoMontoPage } from './components/monto/interes-compuesto-monto.ts';
 import { InteresCompuestoTasaPage } from './components/tasa/interes-compuesto-tasa.ts';
 import { InteresCompuestoCapitalPage } from './components/capital/interes-compuesto-capital.ts';
@@ -29,7 +30,10 @@ export class InteresCompuestoMenuPage {
     }
   ];
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
+  }
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:InteresCompuesto');
   }
   go(page: string) {
     this.navCtrl.push(page)

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { CapitalizacionMenuPage } from '../capitalizacion-menu/capitalizacion-menu';
 import { FinanciacionMenuPage } from '../financiacion-menu/financiacion-menu';
 import { InversionesMenuPage } from '../inversiones-menu/inversiones-menu';
@@ -13,23 +13,33 @@ import { SistemasMenuPage } from '../sistema-menu/sistema-menu';
 })
 export class MenuPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
 
+  }
+
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:Principal');
   }
 
   go(page: string) {
     switch(page){
       case 'interes-simple': 
+        this.ga.trackEvent('Navegacion', 'Menu:InteresSimple');
         return this.navCtrl.push(InteresSimpleMenuPage);
       case 'interes-compuesto':
+        this.ga.trackEvent('Navegacion', 'Menu:InteresCompuesto');
         return this.navCtrl.push(InteresCompuestoMenuPage);
       case 'capitalizacion-menu':
+        this.ga.trackEvent('Navegacion', 'Menu:Capitalizacion');
         return this.navCtrl.push(CapitalizacionMenuPage)
       case 'financiacion-menu':
+        this.ga.trackEvent('Navegacion', 'Menu:Financiacion');
         return this.navCtrl.push(FinanciacionMenuPage)
       case 'inversiones-menu':
+        this.ga.trackEvent('Navegacion', 'Menu:Inversiones');
         return this.navCtrl.push(InversionesMenuPage)
       case 'sistemas-menu':
+        this.ga.trackEvent('Navegacion', 'Menu:Sistemas');
         return this.navCtrl.push(SistemasMenuPage)
     }
   }

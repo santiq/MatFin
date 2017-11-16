@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 @Component({
   templateUrl: 'interes-simple-tiempo.html'
@@ -12,7 +13,7 @@ export class InteresSimpleTiempoPage {
   public Tiempo: number = 10;
   public Monto: number = 2000;
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
     this.doCalculation(this.Monto, this.Tasa, this.Capital);
   }
 
@@ -22,7 +23,7 @@ export class InteresSimpleTiempoPage {
     let _capital = parseFloat(capital);
 
     this.Tiempo = (_monto / _capital - 1) / _tasa;
-
+    this.ga.trackEvent('Calculo', 'InteresSimple:Tiempo');
   }
 
 }

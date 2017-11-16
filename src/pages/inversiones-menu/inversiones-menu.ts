@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { VanPage } from './components/van/van';
 import { TirPage } from './components/tir/tir';
 import { ValuacionAccionesPage } from './components/valuacion-acciones/valuacion-acciones';
@@ -10,8 +10,11 @@ import { ValuacionAccionesPage } from './components/valuacion-acciones/valuacion
 })
 export class InversionesMenuPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private ga: GoogleAnalytics, public navCtrl: NavController) {
 
+  }
+  ionViewDidEnter() {
+    this.ga.trackView('Menu:Inversione');
   }
   pages = [{
     name: 'Tasa Interna de Retorno (TIR)',
