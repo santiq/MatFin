@@ -6,6 +6,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { ConversionTasasMenuPage } from '../pages/conversion-tasas/conversion-tasas-menu';
+import { TasaEfectivaAnualPage } from '../pages/conversion-tasas/components/efectiva-anual/efectiva-anual';
 
 import { CapitalizacionMenuPage } from '../pages/capitalizacion-menu/capitalizacion-menu';
 import { DTEPageCap } from '../pages/capitalizacion-menu/components/dte/dte';
@@ -54,6 +55,7 @@ import { ChartsModule } from 'ng2-charts';
   declarations: [
     MyApp,
     MenuPage,
+    TasaEfectivaAnualPage,
     CapitalizacionMenuPage,
     ConversionTasasMenuPage,
     FinanciacionMenuPage,
@@ -133,6 +135,8 @@ import { ChartsModule } from 'ng2-charts';
     MyApp,
     MenuPage,
     CapitalizacionMenuPage,
+    ConversionTasasMenuPage,
+    TasaEfectivaAnualPage,
     FinanciacionMenuPage,
     DTEPageCap,
     DTEPageFin,

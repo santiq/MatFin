@@ -7,6 +7,7 @@ import { InversionesMenuPage } from '../inversiones-menu/inversiones-menu';
 import { InteresSimpleMenuPage } from '../interes-simple-menu/interes-simple-menu';
 import { InteresCompuestoMenuPage } from '../interes-compuesto-menu/interes-compuesto-menu';
 import { SistemasMenuPage } from '../sistema-menu/sistema-menu';
+import { ConversionTasasMenuPage } from '../conversion-tasas/conversion-tasas-menu';
 
 @Component({
   templateUrl: 'menu.html'
@@ -41,6 +42,9 @@ export class MenuPage {
       case 'sistemas-menu':
         this.ga.trackEvent('Navegacion', 'Menu:Sistemas');
         return this.navCtrl.push(SistemasMenuPage)
+      case 'conversion-tasas': 
+        this.ga.trackEvent('Navegacion', 'Menu:Tasas');
+        return this.navCtrl.push(ConversionTasasMenuPage)
     }
   }
 }

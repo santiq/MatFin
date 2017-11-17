@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-
+import { TasaEfectivaAnualPage } from './components/efectiva-anual/efectiva-anual';
 @Component({
   templateUrl: 'conversion-tasas-menu.html'
 })
@@ -15,7 +15,7 @@ export class ConversionTasasMenuPage {
   }
   pages = [{
     name: 'TNA',
-    // component: DTEPageCap
+    component: TasaEfectivaAnualPage
   },
   // {
   //   name: 'Cuota',

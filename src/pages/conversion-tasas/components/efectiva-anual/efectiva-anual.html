@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tasas: Efectiva Anual </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>i</ion-label>
+      <ion-input name="tasaEfectiva" [(ngModel)]="TasaEfectiva" type="number" id="tasaEfectiva" placeholder="tasaEfectiva"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>m</ion-label>
+      <ion-input name="frecuenciaCapitalizacion" [(ngModel)]="FrecuenciaCapitalizacion" type="number" id="frecuenciaCapitalizacion" placeholder="frecuenciaCapitalizacion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full
+        (click)="doCalculation(TasaEfectiva, FrecuenciaCapitalizacion)"> 
+          Calcular
+       </button>
+    </ion-item>
+  </ion-list>
+
+  <ion-item-group>
+    <ion-item-divider color="light" text-center>
+      Tasas
+    </ion-item-divider>
+  
+    <ion-item>
+      <ion-label> I(M): {{ this.Results.efectivaSuperiodica }} </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> j(m): {{ this.Results.nominalAnual }} </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> d: {{ this.Results.efectivaDescuento }} </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> d(m): {{ this.Results.efectivaSuperiodicaDescuento }} </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> F(m): {{ this.Results.nominalAnualDescuento }} </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> delta: {{ this.Results.instantanea }} </ion-label>
+    </ion-item>
+  </ion-item-group>
+
+
+</ion-content>
