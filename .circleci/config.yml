@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/node:6-browsers
       - image: circleci/android:api-28
     working_directory: ~/repo
     steps:
@@ -12,7 +12,7 @@ jobs:
           command: |
             sudo npm install -g ionic cordova yarn
       - run:
-          name: "Add android platform"
+          name: "Install cordova plugins and add android platform"
           command: |
             mkdir www
             ionic cordova platform add android -Y --noresources
