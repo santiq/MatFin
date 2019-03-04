@@ -16,7 +16,7 @@ jobs:
           command: |
             mkdir www
             ionic cordova platform add android -Y --noresources
-            ionic telemetry on
+            ionic config set -g telemetry true
             cordova telemetry on
       - run:
           name: "Generate APK"
