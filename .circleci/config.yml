@@ -10,7 +10,7 @@ jobs:
       - run:
           name: "Install Ionic and Cordova"
           command: |
-            npm install -g ionic cordova yarn
+            sudo npm install -g ionic cordova yarn
       - run:
           name: "Add android platform"
           command: |
