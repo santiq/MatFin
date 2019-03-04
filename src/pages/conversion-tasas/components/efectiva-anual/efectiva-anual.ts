@@ -10,7 +10,7 @@ export class TasaEfectivaAnualPage {
 
   public convertToNumber(event): number { return parseFloat(event); }
 
-  public TasaEfectiva: number = 2.7;
+  public TasaEfectiva: number = 0.27;
   public FrecuenciaCapitalizacion: number = 12;
   public Results: any = {
     efectivaSuperiodica: 0,
