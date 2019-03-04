@@ -2,29 +2,31 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/node:10-browsers
-    - image: circleci/android:api-28
-  steps:
-    - checkout
-    - run:
-        name: "Install Ionic and Cordova"
-        command: |
-          npm install -g ionic cordova yarn
-    - run:
-        name: "Install Build Tools and Android Platform"
-        command: |
-          if [ ! -e /usr/local/android-sdk-linux/build-tools/26.0.2 ]; then echo y | android update sdk --all --no-ui --filter "build-tools-26.0.1"; fi;
-          if [ ! -e /usr/local/android-sdk-linux/platforms/android-26 ]; then echo y | android update sdk --all --no-ui --filter "tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository,android-26"; fi;
-    - run:
-        name: "Add android platform"
-        command: |
-          mkdir www
-          ionic cordova platform add android -Y --noresources
-          ionic telemetry on
-          cordova telemetry on
-    - run:
-        name: "Generate APK"
-        command: |
-          yarn install
-          ionic cordova build android -Y
-          cp -r platforms/android/build/outputs/apk $CIRCLE_ARTIFACTS
+      - image: circleci/node:10-browsers
+      - image: circleci/android:api-28
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: "Install Ionic and Cordova"
+          command: |
+            npm install -g ionic cordova yarn
+      - run:
+          name: "Add android platform"
+          command: |
+            mkdir www
+            ionic cordova platform add android -Y --noresources
+            ionic telemetry on
+            cordova telemetry on
+      - run:
+          name: "Generate APK"
+          command: |
+            yarn install
+            ionic cordova build android -Y
+            cp -r platforms/android/build/outputs/apk $CIRCLE_ARTIFACTS
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
